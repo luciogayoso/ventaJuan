@@ -37,14 +37,14 @@ h3{
 }
 
 .ilogo{
-    width: 60px;
+    width: 20%;
     margin-left: 5px;
 }
 img{
     width: 100%
 }
 .img{
-    width: 300px;
+    width: 100%;
 }
 
 .icono{
@@ -109,13 +109,13 @@ h3{
 }
 
 .ilogo{
-    width: 60px;
+    width: 60px;;
     margin-left: 5px;
 }
 
 section{
     display: flex;
-    width: 600px;
+    width: 480px;
     flex-wrap: wrap;
 }
 img{
@@ -124,12 +124,12 @@ img{
 }
 .img{
     height: 300px;
-    width: 240px;
+    width: 240px;;
 } 
 
 .icono{
     width: 30px;
-    margin-left: 80px;
+    margin-left: 40px;
 }
 
 p{
@@ -149,7 +149,7 @@ header{
     display: flex;
 }
 .nav{
-    padding-left: 250px;
+    padding-left: 200px;
     padding-top: 20px;
 }
 
@@ -189,7 +189,7 @@ h3{
 
 section{
     display: flex;
-    width: 750px;
+    width: 700px;
     flex-wrap: wrap;
 }
 img{
@@ -198,12 +198,12 @@ img{
 }
 .img{
     height: 300px;
-    width: 240px;
+    width: 230px;
 } 
 
 .icono{
-    width: 30px;
-    margin-left: 80px;
+    width: 20px;
+    margin-left: 40px;
 }
 
 p{
@@ -215,6 +215,87 @@ p{
   display: flex;
   margin: 5px;
   padding:10px;
-  font-size: 13px;
+  font-size: 16px;
+}
+}
+
+@media only screen and (min-width: 1000px){
+    
+header{
+    display: flex;
+}
+.nav{
+    padding-left: 300px;
+    padding-top: 40px;
+}
+
+ul{
+    display: flex;
+    background-color: dodgerblue;
+    padding: 0;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #f1f1f1;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.logo{
+   padding: 10px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+}
+
+h3{
+    padding-left: 10px;
+    margin: 0;
+    font-size: 30px;
+}
+#pLogo{
+    font-size: 30px;
+}
+
+.ilogo{
+    width: 60px;
+    margin-left: 5px;
+}
+
+section{
+    display: flex;
+    width: 1000px;
+    flex-wrap: wrap;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.img{
+    height: 300px;
+    width: 80%;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 80px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.DComprar{
+  display: flex;
+  margin: 5px;
+  padding:10px;
+  font-size: 2em;
 }
 }
