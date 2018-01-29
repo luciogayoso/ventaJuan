@@ -1,0 +1,220 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    display: flex;
+}
+
+ul{
+    display: flex;
+    background-color: dodgerblue;
+    padding: 0;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #f1f1f1;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.logo{
+   padding: 10px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+}
+
+h3{
+    padding-left: 10px;
+    margin: 0;
+}
+
+.ilogo{
+    width: 60px;
+    margin-left: 5px;
+}
+img{
+    width: 100%
+}
+.img{
+    width: 300px;
+}
+
+.icono{
+    width: 30px;
+    margin-left: 140px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.DComprar{
+  display: flex;
+  margin: 5px;
+  padding:10px;
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 480px){
+body{
+   padding-left: 2%;
+   padding-right: 2%;
+}
+    
+header{
+    display: flex;
+}
+
+.nav{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+ul{
+    display: flex;
+    background-color: dodgerblue;
+    padding: 0;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #f1f1f1;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.logo{
+   padding: 10px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+}
+
+h3{
+    padding-left: 10px;
+    margin: 0;
+}
+
+.ilogo{
+    width: 60px;
+    margin-left: 5px;
+}
+
+section{
+    display: flex;
+    width: 600px;
+    flex-wrap: wrap;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.img{
+    height: 300px;
+    width: 240px;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 80px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.DComprar{
+  display: flex;
+  margin: 5px;
+  padding:10px;
+  font-size: 13px;
+}
+}
+@media only screen and (min-width: 700px){
+header{
+    display: flex;
+}
+.nav{
+    padding-left: 250px;
+    padding-top: 20px;
+}
+
+ul{
+    display: flex;
+    background-color: dodgerblue;
+    padding: 0;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #f1f1f1;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.logo{
+   padding: 10px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+}
+
+h3{
+    padding-left: 10px;
+    margin: 0;
+}
+
+.ilogo{
+    width: 60px;
+    margin-left: 5px;
+}
+
+section{
+    display: flex;
+    width: 750px;
+    flex-wrap: wrap;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.img{
+    height: 300px;
+    width: 240px;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 80px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.DComprar{
+  display: flex;
+  margin: 5px;
+  padding:10px;
+  font-size: 13px;
+}
+}
