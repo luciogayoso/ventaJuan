@@ -7,6 +7,7 @@ public class Cliente {
   private String nombreUsurio;
   private String clave;
   private String tipo;
+  private String id;
 
     /**
      * @return the nombre
@@ -90,6 +91,20 @@ public class Cliente {
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
     }
   
 }

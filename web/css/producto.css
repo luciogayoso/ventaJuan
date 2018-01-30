@@ -220,7 +220,11 @@ p{
 }
 
 @media only screen and (min-width: 1000px){
-    
+body{
+    padding-left: 50px; 
+    padding-right: 50px;
+}  
+       
 header{
     display: flex;
 }
@@ -272,18 +276,24 @@ section{
     width: 1000px;
     flex-wrap: wrap;
 }
+
+.producto{
+   width: 300px;
+}
+
 img{
     height: 100%;
     width: 100%;
 }
 .img{
     height: 300px;
-    width: 80%;
+    width: 100%;
 } 
 
 .icono{
     width: 30px;
     margin-left: 80px;
+    height: 30px;
 }
 
 p{
@@ -296,6 +306,6 @@ p{
   display: flex;
   margin: 5px;
   padding:10px;
-  font-size: 2em;
+  font-size: 10px;
 }
 }

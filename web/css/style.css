@@ -57,3 +57,6 @@ input{
   padding: 5px;
 }
 
+#usuarioMensaje,#claveMensaje{
+    color: red;
+}

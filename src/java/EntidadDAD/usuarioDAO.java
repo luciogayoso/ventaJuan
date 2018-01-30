@@ -37,7 +37,7 @@ public class usuarioDAO {
    Connection reg = con.getConnection();
    PreparedStatement prs = null;
    List<String> resultado = new ArrayList<>();
-   String sql = "SELECT u_id , u_nombreUsuario , u_clave FROM `usuario` WHERE u_nombreUsuario = ?";
+   String sql = "SELECT * FROM `usuario` WHERE u_nombreUsuario = ?";
        try {
            prs = reg.prepareStatement(sql);
            prs.setString(1, c.getNombreUsurio());
@@ -46,6 +46,10 @@ public class usuarioDAO {
                 resultado.add(rs.getString(1));
                 resultado.add(rs.getString(2));
                 resultado.add(rs.getString(3));
+                resultado.add(rs.getString(4));
+                resultado.add(rs.getString(5));
+                resultado.add(rs.getString(6));
+                resultado.add(rs.getString(7));
            }
        
          return resultado;

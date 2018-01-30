@@ -25,14 +25,24 @@ public class Registrarse extends HttpServlet {
        String datosResividos = request.getParameter("peticion");
        Gson gson = new Gson();
        Cliente login = gson.fromJson(datosResividos, Cliente.class);
+       Cliente envio = new Cliente();
        usuarioDAO logear = new usuarioDAO();
        List<String> resultado = logear.logear(login);
         if (resultado.size() > 0) {
-       String id = resultado.get(0);
-       String nombre = resultado.get(1);
-       String clave = resultado.get(2);
-        
-        out.print(id +" "+ nombre +" "+ clave +" "); 
+       envio.setId(resultado.get(0));
+       envio.setNombre(resultado.get(1));
+       envio.setApellido(resultado.get(2));
+       envio.setMail(resultado.get(3));
+       envio.setNombreUsurio(resultado.get(4));
+       String clave = resultado.get(5);
+       envio.setTipo(resultado.get(6));
+            if (clave.equals(login.getClave())) {
+                String json = gson.toJson(envio);
+                
+                out.print(json);
+            }else {
+             out.print("La clave es incorrecta");
+            }
         }else {
           out.print("Este usuario no existe");
         }
