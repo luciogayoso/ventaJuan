@@ -1,0 +1,1263 @@
+body{ 
+    margin: 0;
+    padding: 0; 
+} 
+
+@media only screen and (min-width: 280px) and (max-width: 450px){
+body{ 
+    margin: 0;
+    padding: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "nav logoGrande"
+                 "comprar comprar"     
+                 "subtitulo subtitulo"
+                 "section section"
+                  "footer footer";
+}
+
+.logo { 
+    display: none;
+}
+
+.logo{
+   width: 60px;
+   height: 60px;
+   padding: 0;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 100%;
+    margin-left:0px;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 10%;
+    height: 100%;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0px;
+}
+
+.menu-desplegado{
+    position: absolute;
+    border-bottom: 1px;
+    width: 250px;
+    height: 150px;
+    padding: 0;
+}
+
+.menu-desplegado a:hover{
+    background-color: graytext;
+    color: white;   
+}
+
+.icono-menu{
+    padding-left: 10px;
+    width: 20px;
+}
+
+.img-vestido{
+    display: none;
+}
+
+.img-blusa{
+    display: none;
+}
+
+.despiegue{
+    position: absolute;
+    padding: 0;
+    margin-left:20%;
+    background-color: black;
+}
+
+.mensaje{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.nav ul li ul{
+    display: none;
+}
+
+.nav ul li a:hover + ul, .nav ul li ul:hover {
+    display: block;
+}
+
+ul{
+    background-color: dodgerblue;
+    width: 100%;
+    font-family: "century gothic",verdana sans serif;
+    font-style: normal;
+}
+
+.submenu{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid black;
+    height: 100%;   
+    width: 100%;
+}
+
+ul li ul{
+    width: 100%;
+    height: 80px;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #ffff;
+  font-size: 15px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: left;
+   display: block;
+   color: black;
+}
+
+.usr { 
+    display: none;
+}
+
+.img-panoramica{
+  grid-area: img-panoramica;
+  margin-top: 20px;
+  margin-left: 5%;
+  display: none;
+}
+
+.panoramica{
+    width: 90%;
+}
+
+#comprar{
+    grid-area: comprar;
+    margin-top: 10px;  
+}
+
+.section { 
+    grid-area:section;
+    width: 100%;
+}
+
+button{
+    margin-left: 50px;
+    background-color: gray;
+    color: white;
+}
+
+h4{
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
+
+.producto{
+   padding-top: 30px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 500px;
+    width: 100%;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 0;
+    height: 30px;
+}
+
+p{
+    margin: 0;
+    font-size: 20px;
+    font-style: initial;
+    text-align: center
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+#colores1{
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border: 1px solid black;
+}
+
+#colores2{
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border: 1px solid black;
+}
+
+.DComprar{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+footer h3{
+    margin-bottom: 0px;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+}
+
+@media only screen and (min-width: 451px) and (max-width: 600px){
+body{ 
+    margin: 0;
+    padding: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "nav logoGrande logoGrande"
+      "img-panoramica img-panoramica img-panoramica"
+                  "comprar comprar comprar"     
+      "subtitulo subtitulo subtitulo"
+                       "section section section"
+                       "footer footer footer";
+}
+
+.logo { 
+    display: none;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 10%;
+    height: 100%;
+}
+
+.img-vestido{
+    display: none;
+}
+
+.img-blusa{
+    display: none;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0px;
+}
+
+.menu-desplegado{
+    position: absolute;
+    border-bottom: 1px;
+    width: 300px;
+    height: 100px;
+    padding: 0;
+}
+
+.mensaje{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.menu-desplegado a:hover{
+    background-color: graytext;
+    color: white;   
+}
+
+.icono-menu{
+    padding-left: 10px;
+    width: 20px;
+}
+
+.usr { 
+    display: none;
+}
+.section { 
+    grid-area:section;
+    width: 100%;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 80%;
+    margin-left:20px;
+}
+
+#comprar{
+    grid-area: comprar;
+    margin-top: 10px;
+}
+
+.img-panoramica{
+  grid-area: img-panoramica;
+  margin-top: 40px;
+  margin-left: 5%;
+}
+
+.panoramica{
+    width: 90%;
+}
+
+.despiegue{
+    position: absolute;
+    padding: 0;
+    margin-left:20%;
+    border: 1px solid white;
+    background-color: black;
+}
+
+.nav ul li ul{
+    display: none;
+}
+
+.nav ul li a:hover + ul, .nav ul li ul:hover {
+    display: block;
+}
+
+ul{
+    background-color: dodgerblue;
+    width: 100%;
+    font-family: "century gothic",verdana sans serif;
+    font-style: normal;
+}
+
+.submenu{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid black;
+}
+
+ul li ul{
+    width: 100%;
+    height: 80px;
+}
+
+li{
+    width: 100%;
+    }
+
+ul , li {
+  list-style: none; 
+  background-color: #ffff;
+  font-size: 15px;
+}
+
+.logo{
+   width: 60px;
+   height: 60px;
+   padding: 0;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: left;
+   display: block;
+   color: black;
+}
+
+h4{
+    margin: 0;
+    font-size: 30px;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
+
+.producto{
+   margin-left: 10%;
+   width: 80%;
+   padding-top: 30px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 700px;
+    width: 100%;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 0;
+    height: 30px;
+}
+
+p{
+    margin: 0;
+    font-size: 20px;
+    font-style: initial;
+    text-align: center
+}   
+
+#colores{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+#colores1{
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border: 1px solid black;
+}
+
+#colores2{
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border: 1px solid black;
+}
+
+.DComprar{
+  display: flex;
+  padding-top: 2px;
+}
+
+footer h3{
+    margin-bottom: 0px;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+}
+@media only screen and (min-width: 601px) and (max-width:800px){
+body{ 
+    margin: 0;
+    padding: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "nav logoGrande logoGrande"
+      "img-panoramica img-panoramica img-panoramica"
+                  "comprar comprar comprar"     
+      "subtitulo subtitulo subtitulo"
+                       "section section section"
+                       "footer footer footer";
+}
+
+.logo { 
+    display: none;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 10%;
+    height: 100%;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0px;
+}
+
+.menu-desplegado{
+    position: absolute;
+    border: 1px solid black;
+    width: 200px;
+    height: 100%;
+    padding: 0;
+}
+
+.menu-desplegado a:hover{
+    background-color: graytext;
+    color: white;   
+}
+
+.icono-menu{
+    padding-left: 10px;
+    width: 20px;
+}
+
+.usr { 
+    display: none;
+}
+.section { 
+    grid-area:section;
+    width: 100%;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 80%;
+    margin-left:20px;
+}
+
+#comprar{
+    grid-area: comprar;
+    margin-top: 10px;
+}
+
+.img-panoramica{
+  grid-area: img-panoramica;
+  margin-top: 40px;
+  margin-left: 5%;
+}
+
+.panoramica{
+    width: 90%;
+}
+
+.despiegue{
+    position: fixed;
+    padding: 0;
+    margin-left:20%;
+    border: 2px solid white;
+    background-color: black;
+}
+
+.nav ul li ul{
+    display: none;
+}
+
+.nav ul li a:hover + ul, .nav ul li ul:hover {
+    display: block;
+}
+
+ul{
+    background-color: dodgerblue;
+    width: 100%;
+}
+
+.submenu{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid black;
+}
+
+li{
+    width: 100%;
+    }
+
+ul , li {
+  list-style: none; 
+  background-color: #ffff;
+  font-size: 15px;
+}
+
+.logo{
+   width: 60px;
+   height: 60px;
+   padding: 0;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: left;
+   display: block;
+   color: black;
+}
+
+h4{
+    margin: 0;
+    font-size: 20px;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.producto{
+   margin-left: 10%;
+   width: 80%;
+   padding-top: 30px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 700px;
+    width: 100%;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 0;
+    height: 30px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-style: initial;
+}
+
+.DComprar{
+  display: flex;
+  padding-top: 2px;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1000px){
+body{ 
+    margin: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "logo logoGrande usr"
+                       "nav nav nav"
+                       "img-panoramica img-panoramica img-panoramica"
+                       "subtitulo subtitulo subtitulo"
+                       "section section section"
+                       "footer footer footer";
+}
+
+.logo { 
+    grid-area:logo;
+    display: flex;
+    padding: 10px;
+    width: 20%;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0;
+}
+
+.menu-desplegado{
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+
+
+.li-iconoMenu{
+    height: 40px;
+    padding-top: 10px;
+}
+
+.icono-menu{
+    width:0px;
+    height: 0px
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid graytext;
+    border-bottom: 1px solid graytext;
+    color: darkgray;
+    text-align: center;
+}
+
+.nav ul li ul li ul{
+    display: none;
+}
+
+.nav ul li ul li a:hover + ul, .nav ul li ul li ul:hover {
+    display: block;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+}
+
+.usr { 
+    grid-area:usr; 
+    margin-top: 10px;
+     width: 10%;
+     height: 30px;
+}
+
+.section { 
+    grid-area:section;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-right: 10%;
+    margin: auto;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 500px;
+    height: 150px;
+}
+
+.despiegue{
+    position: absolute;
+    text-align: center;
+    border: 1px solid white;
+    background-color: white;
+    padding: 0;
+    width: 600px;
+}
+
+ul{
+    position: relative;
+    background-color: #f1f1f1;
+    width: 100%;
+    margin: 0;
+}
+
+.mensaje{
+    background-color: black;
+    color: white;
+}
+
+.img-panoramica{
+    grid-area: img-panoramica;
+    width: 90%;
+    margin-bottom: 40px;
+    margin-left: 5%;
+}
+
+.panoramica{
+    width: 100%;
+    height: 200px;
+}
+
+li{
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+    background-color: #f1f1f1;
+}
+
+.logo{
+   width: 130px;
+   height: 130px;
+   padding-left: 20px;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+   display: block;
+   color: black;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 25px;
+    margin: 0;
+}
+
+.producto{
+   width: 200px;
+   padding-top: 50px;
+   padding-right: 20px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 400px;
+    width: 200px;
+} 
+
+.producto .trasero{
+    display: none;
+}
+
+.producto .img:hover +img,.producto{
+    display: block;
+}
+
+.icono{
+    width:30px;
+    height:30px;
+    margin-top:40px;
+}
+
+p{
+    margin: 0;
+    padding-bottom:10px;
+    font-size: 20px;
+    font-family:arial;
+}
+
+.DComprar{
+    text-align: center;
+    padding-top: 10px;;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background-color: blue;
+}
+
+#colores1{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background-color: green;
+}
+
+#colores2{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    background-color: red;
+}
+
+.radio{
+    width: 20px;
+}
+
+.img-vestido{
+    display: none;
+}
+
+.img-blusa{
+    display: none;
+}
+
+button{
+    margin-left: 50px;
+    background-color: gray;
+    color: white;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+}
+
+@media only screen and (min-width: 1001px){
+body{ 
+    margin: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "logo logoGrande usr"
+                       "nav nav nav"
+                       "img-panoramica img-panoramica img-panoramica"
+                       "subtitulo subtitulo subtitulo"
+                       "section section section"
+                       "footer footer footer";
+}
+
+.logo { 
+    grid-area:logo;
+    display: flex;
+    padding: 10px;
+    width: 20%;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid grey;
+}
+
+.menu-desplegado{
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+
+
+.li-iconoMenu{
+    height: 40px;
+    padding-top: 10px;
+}
+
+.icono-menu{
+    width:0px;
+    height: 0px;
+    display: none;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid graytext;
+    border-bottom: 1px solid graytext;
+    color: darkgray;
+    text-align: center;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+}
+
+.usr { 
+    grid-area:usr; 
+    margin-top: 10px;
+     width: 100%;
+     height: 30px;
+}
+
+#usrBoton{
+    font-family: "Pacifico", cursive;
+    font-style: italic;
+    color: black;
+    border: 0;
+    background-color: white;
+}
+
+.section { 
+    grid-area:section;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-right: 10%;
+    margin: auto;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 600px;
+    height: 200px;
+}
+
+.menu-desplegado li:hover > div {
+    display: block;
+    color: black;
+}
+
+.menu-desplegado li div:hover {
+    display: block;
+    color: black;
+}
+
+.menu-desplegado li a:hover {
+    font-weight: bold;
+}
+
+.despiegue ul {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.despiegue {
+    position: absolute;
+    top: 25em;
+    left: 0;
+    opacity: 0.8;
+    text-align: center;
+    display: none;
+    margin-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    font-size: 1px;
+}
+
+.despiegue a{
+    font-size: 15px;
+    margin-right: 25%;
+    
+}
+
+.iten{
+    padding-left: 15%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.mensaje{
+    background-color: black;
+    text-align: center;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 194px;
+}
+
+ul{
+    position: absolute;
+    width: 90%;
+    margin:0;
+}
+
+li{
+    text-align: center;
+}
+
+.img-panoramica{
+    grid-area: img-panoramica;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 5%;
+}
+
+#radio-panoramico{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#form{
+    width: 30px;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.panoramica{
+    width: 100%;
+    height: 200px;
+}
+
+li{
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+}
+
+.decoracion{
+    margin-left: 70%;
+    width: 150px;
+    height: 150px;
+}
+
+.logo{
+   width: 130px;
+   height: 130px;
+   padding-left: 20px;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+#nusr{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+   color: black;
+   font-family: 'Julius Sans One', sans-serif;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 25px;
+    margin: 0;
+}
+
+.producto{
+   width: 220px;
+   padding-top: 50px;
+   padding-right: 20px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 400px;
+    width: 220px;
+} 
+
+
+
+.icono{
+    width:30px;
+    height:30px;
+    margin-top:40px;
+}
+
+p{
+    margin: 0;
+    padding-bottom:10px;
+    font-size: 20px;
+    font-family:arial;
+}
+
+.DComprar{
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+
+button{
+    margin-left: 50px;
+    background-color: gray;
+    color: white;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 30px;
+    height: 30px;
+    padding-right: 10px;
+}
+}
+

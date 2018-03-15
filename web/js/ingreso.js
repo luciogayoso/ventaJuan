@@ -29,12 +29,12 @@ xhr.onreadystatechange = function (){
         }else if(xhr.responseText == "La clave es incorrecta"){
     var claveMsg = document.querySelector("#claveMensaje");
       claveMsg.innerHTML= xhr.responseText;
-    
   }else {
       sessionStorage.setItem("usuario",xhr.responseText);
       document.querySelector("#nombreUsuario").value = "";
       document.querySelector("#clave").value = "";
-   }
+      location.href = "index.html";
+        }
   }
  };
  xhr.send();

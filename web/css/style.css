@@ -22,7 +22,7 @@ nav {
 
 ul{
     display: flex;
-    back,ground-color: dodgerblue;
+    background-color: white;
 }
     
 ul > li{
