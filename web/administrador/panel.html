@@ -2,9 +2,10 @@
 
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Panel de Administrador</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="Shortcut Icon" href="../img/WhatsApp_Image_2018-01-30_at_16_21_37 (1).ico" type="image/x-icon" />
         <link href="css/administradorStyle.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Contrail+One|Great+Vibes|Julius+Sans+One|Oswald|Slabo+27px" rel="stylesheet">
     </head>
@@ -25,7 +26,7 @@
                 <form id="formulario">
                     <h3>Cargar Productos</h3>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" class="caja" value="" ><spsn id="span1"></spsn><br>
+                    <input type="text" id="nombre" class="caja" value="" placeholder="Ingrese el nombre del producto"><spsn id="span1"></spsn><br>
                     <label for="cargar">Ingresar foto:</label>
                     <input type="file" id="cargar" class="caja" ><spsn id="span2"></spsn><div id="foto"></div>
                     <label for="cargarb">Ingresar de atras:</label>
@@ -33,9 +34,7 @@
                     <label for="color">Eligir color:</label>
                     <input type="color" id="color" class="caja" placeholder="Elegir color" ><spsn id="span4"></spsn><br>
                     <label for="precio">Ingrese el precio del producto:</label>
-                    <input type="number" id="precio" class="caja"  placeholder="Ingrese el precio" ><spsn id="span5"></spsn><br> 
-                    <label for="stock">Ingrese el stock disponible:</label>
-                    <input type="number" id="stock" class="caja"  placeholder="Ingrese el stock" ><spsn id="span6"></spsn><br><br>
+                    <input type="number" id="precio" class="caja"  placeholder="Ingrese el precio" ><spsn id="span5"></spsn><br><br>
                     <label for="tipo">Elegir producto:</label>
                     <select id="tipo">
                         <option></option>
@@ -45,20 +44,40 @@
                         <option>Falda</option>
                         <option>Novedades</option>
                         <option>Liquidacion</option>
-                    </select><spsn id="span7"></spsn><br><br><br>
+                    </select><spsn id="span6"></spsn><br>
+                    <div class="stock-talles">
+                      <label for="S">Stock por el talle S</label><input id="S" type="number" value="0"><br><br>
+                      <label for="M">Stock por el talle M</label><input id="M" type="number" value="0"><br><br>
+                      <label for="L">Stock por el talle L</label><input id="L" type="number" value="0"><br><br>
+                      <label for="XL">Stock por el talle XL</label><input id="XL" type="number" value="0"><br><br>
+                      </div>
+                    <label for="stock">Ingrese el stock disponible:</label>
+                    <input type="number" id="stock" class="caja" value="0" disabled=""><br><br>
+                    <label for="descripcion">Descripcion del producto</label>
+                    <textarea id="descripcion" placeholder="Breve descripcion del producto"></textarea><spsn id="span7"></spsn><br><br>
                     <input id="enviar" type="button" value="Guardar">
-                </form>
+                    </form>
                 <form id="formUpDate">
                     <h3>Cargar fotos y colores secundarias</h3>
                     <label for="productos">Elegir producto:</label>
                     <select id="productos">
                         <option disabled>Seleccione un producto</option>
-                    </select><br>
+                    </select><spsn id="span8"></spsn><br>
                     <label for="actualiza">Ingresar foto:</label>
-                    <input type="file" id="actualiza" class="caja" ><spsn id="span8"></spsn><div id="fotoActulizar"></div>
+                    <input type="file" id="actualiza" class="caja" ><spsn id="span9"></spsn><div id="fotoActulizar"></div>
                     <label for="colorUpdate">Eligir color:</label>
-                    <input type="color" id="colorUpdate" class="caja" placeholder="Elegir color" ><spsn id="span9"></spsn>
+                    <input type="color" id="colorUpdate" class="caja" placeholder="Elegir color" ><spsn id="span10"></spsn>
                     <input id="agregar" type="button" value="Guardar">
+                </form><br><br><br>
+            <form id="formUpDateFoto">
+                    <h3>Cargar fotos adicionales</h3>
+                    <label for="productos">Elegir producto:</label>
+                    <select class="productos">
+                         <option disabled>Seleccione un producto</option>
+                    </select><spsn id="span11"></spsn><br>
+                    <label for="actualiza2">Ingresar foto:</label>
+                    <input type="file" id="actualiza2" class="caja" ><spsn id="span12"></spsn><div id="fotoActulizar2"></div>
+                    <input id="agregarFoto" type="button" value="Guardar">
                 </form><br><br><br>
             </div>
         <div id="footer"></div>

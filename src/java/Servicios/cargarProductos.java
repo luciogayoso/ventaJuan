@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import peticiones.OtrosColores;
 import peticiones.Producto;
 
 
@@ -28,13 +29,26 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        String idProducto = request.getParameter("id_producto");
         productoDAO pedir = new productoDAO();
         Gson gson = new Gson();
-        List res = pedir.recuperar();
+        List res ;
+        
+        if (idProducto == null) {
+            
+        res = pedir.recuperar();
         
         String respuesta = gson.toJson(res);
     
     out.print(respuesta);
+    }else {
+        
+        res = pedir.recuperarProducto(idProducto);
+        
+        String respuesta = gson.toJson(res);
+    
+    out.print(respuesta);
+        }
     }
 
     @Override
@@ -42,11 +56,46 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
             throws ServletException, IOException {
 
         PrintWriter out = response.getWriter();
+        String put = request.getParameter("put");
+        
+        if (put.equals("true")) {
+        String idProducto = request.getParameter("producto");
+        String color = request.getParameter("color");
+        Part foto = request.getPart("foto");
+        String nombreArchivoFoto = Paths.get(foto.getSubmittedFileName()).getFileName().toString();
+
+        OtrosColores o = new OtrosColores();
+        o.setIdProducto(idProducto);
+        o.setFoto(nombreArchivoFoto);
+        o.setColor(color);
+        
+        productoDAO cargar = new productoDAO();
+        String resultado = cargar.cargarOtrosColores(o);
+        
+        InputStream isFoto = foto.getInputStream();
+
+        File f = new File(this.aEnviar + nombreArchivoFoto);
+        FileOutputStream ous = new FileOutputStream(f);
+        int dato = isFoto.read();
+        while (dato != -1) {
+            ous.write(dato);
+            dato = isFoto.read();
+        }
+
+        out.print(resultado);
+       
+    }else if(put.equals("false")) {
         String nombre = request.getParameter("nombre");
         String color = request.getParameter("color");
         String stock = request.getParameter("stock");
         String precio = request.getParameter("precio");
         String tipo = request.getParameter("tipo");
+        String talleS = request.getParameter("talleS");
+        String talleM = request.getParameter("talleM");
+        String talleL = request.getParameter("talleL");
+        String talleXL = request.getParameter("talleXL");
+        String descripcion = request.getParameter("descripcion");
+        
         Part foto = request.getPart("foto");
         Part fotob = request.getPart("fotob");
         productoDAO cargar = new productoDAO();
@@ -76,10 +125,14 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
         p.setTipo(tipo);
         p.setFoto(nuevaRuta);
         p.setFotob(nuevaRutab);
+        p.setTalleS(talleS);
+        p.setTalleM(talleM);
+        p.setTalleL(talleL);
+        p.setTalleXL(talleXL);
+        p.setDescripcion(descripcion);
 
         String resultado = cargar.cargarProsucto(p);
 
-        
         File fb = new File(this.aEnviar + nuevaRutab);
         FileOutputStream ousb = new FileOutputStream(fb);
         int datob = isFotob.read();
@@ -96,14 +149,63 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
             dato = isFoto.read();
         }
         out.print(resultado);
+        } else {
+            String idProducto = request.getParameter("producto");
+            Part foto2 = request.getPart("foto");
+            String nombreArchivoFoto = Paths.get(foto2.getSubmittedFileName()).getFileName().toString();
+
+        OtrosColores o = new OtrosColores();
+        o.setIdProducto(idProducto);
+        o.setFoto(nombreArchivoFoto);
+        
+        productoDAO cargar = new productoDAO();
+        String resultado = cargar.cargarOtrosFoto(o);
+        
+        InputStream isFoto = foto2.getInputStream();
+
+        File f = new File(this.aEnviar + nombreArchivoFoto);
+        FileOutputStream ous = new FileOutputStream(f);
+        int dato = isFoto.read();
+        while (dato != -1) {
+            ous.write(dato);
+            dato = isFoto.read();
+        }
+
+        out.print(resultado);
+       
     }
+ }
     
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-PrintWriter out = response.getWriter();
-
-out.print("funciona");
        
+        PrintWriter out = response.getWriter();
+
+        String idProducto = request.getParameter("producto");
+        String color = request.getParameter("color");
+        Part foto = request.getPart("foto");
+        String nombreArchivoFoto = Paths.get(foto.getSubmittedFileName()).getFileName().toString();
+
+        OtrosColores o = new OtrosColores();
+        o.setIdProducto(idProducto);
+        o.setFoto(nombreArchivoFoto);
+        o.setColor(color);
+        
+        productoDAO cargar = new productoDAO();
+        String resultado = cargar.cargarOtrosColores(o);
+        
+        InputStream isFoto = foto.getInputStream();
+
+        File f = new File(this.aEnviar + nombreArchivoFoto);
+        FileOutputStream ous = new FileOutputStream(f);
+        int dato = isFoto.read();
+        while (dato != -1) {
+            ous.write(dato);
+            dato = isFoto.read();
+        }
+
+        out.print(resultado);
+ 
     }
 }

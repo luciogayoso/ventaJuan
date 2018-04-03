@@ -4,9 +4,35 @@ window.addEventListener("load",pedirProducto,false);
 window.addEventListener("load",pedirProductob,false);
 var radio = document.querySelectorAll(".radio");
 
+var carrito = document.querySelector("#comprar");
+carrito.addEventListener("click",function (){
+    var usuario = sessionStorage.getItem("usuario");
+    if (usuario != null){
+        location.href = "Carrito.html";
+    }else {
+        var span = document.querySelector("#errorCarrito");
+       span.textContent = "Debe inciar sesion";
+    }
+});
+
+var sesion = document.querySelector(".incio-sesion");
+sesion.addEventListener("mouseover",function (){
+    var span = document.querySelector("#errorCarrito");
+       span.textContent = "";
+});
+
+carrito.addEventListener("mouseover",function (){
+    var span = document.querySelector("#errorCarrito");
+       span.textContent = "";  
+});
+
 function pedirProducto(){
+   var pagina = document.querySelector(".subtitulo");
+    var titulo = pagina.childNodes;
+    console.log(titulo[0].textContent);
+   
     
-  var xhr = ajaxHeader("GET","./cargarProductos?id_usuario=");
+  var xhr = ajaxHeader("GET","./cargarProductos?pagina =");
   xhr.onreadystatechange = function (){
             if (xhr.readyState === 4 && xhr.status === 200){
                var respuesta = xhr.responseText; 
@@ -20,7 +46,7 @@ function pedirProducto(){
 
                     output += '<div class="producto">\n\
                     <div class="img">\n\
-                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" alt=""/>\n\
+                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
                     </div>\n\
                     <div class="DComprar">\n\
                     <p>' + json[i].p_nombre + '</p>\n\
@@ -52,11 +78,17 @@ function pedirProductob(){
       cerrarSesion.setAttribute("id","usrBoton");
       cerrarSesion.setAttribute("class","cerrar-sesion");
       cerrarSesion.setAttribute("type","button");
-      cerrarSesion.setAttribute("omclick","cerraSesion()");
+      cerrarSesion.setAttribute("onclick","cerraSesion()");
       divUsr.replaceChild(cerrarSesion,ISboton);
         nUsr.innerText = "Hola, bienvenido "+nombreUsuario+" "+apellido;
       
     }
+}
+
+function cerraSesion(){
+    sessionStorage.removeItem("usuario");
+    
+    location.reload();
 }
 
 
@@ -109,6 +141,12 @@ var radio2 = radio[1];
 radio2.addEventListener("click",elegirFoto,false);
 var radio3 = radio[2];
 radio3.addEventListener("click",elegirFoto,false);
+    function  detalleProducto(e){
+        
+        idProducto = e.attributes[2].nodeValue;
+        localStorage.setItem("idProducto",idProducto);
+        location.href="descripcionProducto.html";
+    }
 
 function elegirFoto(e){
     var rutaFoto = e.target.value;

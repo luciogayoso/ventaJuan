@@ -3,6 +3,263 @@ body{
     padding: 0; 
 } 
 
+@media only screen and (min-width: 200px) and (max-width: 279px){
+    html{
+        width: 125%;
+    }
+    
+    body{ 
+    margin: 0;
+    padding: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "nav logoGrande"
+                 "comprar comprar"     
+                 "subtitulo subtitulo"
+                 "section section"
+                  "footer footer";
+}
+
+.logo { 
+    display: none;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 100%;
+    margin-left:0px;
+}
+
+.incio-sesion{
+    display: none;
+}
+
+.registrarse{
+    display: none;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 10%;
+    height: 100%;
+    font-family: 'Julius Sans One', sans-serif;
+
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0px;
+}
+
+.menu-desplegado{
+    position: absolute;
+    border-bottom: 1px;
+    width: 125%;
+    height: 300px;
+    padding: 0;
+    background-color: white
+}
+
+.menu-desplegado a:hover{ 
+   font-weight: bold;
+}
+
+.icono-menu{
+    padding-left: 10px;
+    width: 20px;
+}
+
+.despiegue{
+    position: relative;
+    padding: 0;
+    width: 80%;
+    margin-left: 40%;
+    background-color: white;
+    border-bottom: 1px solid gray
+}
+
+.mensaje{
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: none;
+}
+
+.nav ul li ul{
+    display: none;
+}
+
+.nav ul li a:hover + ul, .nav ul li ul:hover {
+    display: block;
+}
+
+#imini{
+    display: none;
+}
+
+ul{
+    background-color: dodgerblue;
+    width: 100%; 
+    text-align: center;
+    height: 100%;
+    font-family: "century gothic",verdana sans serif;
+    font-style: normal;
+}
+
+li {
+    height: 30px;
+}
+
+.submenu{
+    text-align: center;   
+    width: 100%;
+   font-size: 20px;
+}
+
+ul li ul{
+    width: 100%;
+    height: 80px;
+}
+
+ul , li {
+  list-style: none; 
+  background-color: #ffff;
+  font-size: 15px;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: left;
+   display: block;
+   color: black;
+}
+
+.img-panoramica{
+  display: none;
+}
+
+.panoramica{
+    display: none;
+}
+
+#comprar{
+    grid-area: comprar;
+    margin-top: 10px;  
+}
+
+.section { 
+    grid-area:section;
+    width: 100%;
+}
+
+button{
+    margin-left: 50px;
+    background-color: gray;
+    color: white;
+}
+
+h4{
+    margin: 0;
+    font-size: 12px;
+    text-align: center;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
+
+.producto{
+   padding-top: 30px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 500px;
+    width: 100%;
+} 
+
+.icono{
+    width: 30px;
+    margin-left: 0;
+    height: 30px;
+}
+
+p{
+    margin: 0;
+    font-size: 20px;
+    font-style: initial;
+    text-align: center
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+.DComprar{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+footer h3{
+    margin-bottom: 0px;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+}
+
 @media only screen and (min-width: 280px) and (max-width: 450px){
 body{ 
     margin: 0;
@@ -149,14 +406,7 @@ a{
 }
 
 .img-panoramica{
-  grid-area: img-panoramica;
-  margin-top: 20px;
-  margin-left: 5%;
   display: none;
-}
-
-.panoramica{
-    width: 90%;
 }
 
 #comprar{
@@ -223,19 +473,6 @@ p{
     border: 1px solid black;
 }
 
-#colores1{
-    width: 10px;
-    height: 10px;
-    background-color: blue;
-    border: 1px solid black;
-}
-
-#colores2{
-    width: 10px;
-    height: 10px;
-    background-color: green;
-    border: 1px solid black;
-}
 
 .DComprar{
   padding-top: 10px;
@@ -252,6 +489,23 @@ footer{
     color: white;
     text-align: center;
     font-style: italic;
+}
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
 }
 }
 
@@ -487,8 +741,10 @@ p{
 }
 
 .DComprar{
-  display: flex;
-  padding-top: 2px;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
 footer h3{
@@ -501,6 +757,23 @@ footer{
     color: white;
     text-align: center;
     font-style: italic;
+}
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
 }
 }
 @media only screen and (min-width: 601px) and (max-width:800px){
@@ -684,258 +957,9 @@ img{
 
 p{
     margin: 0;
-    padding: 0;
-    font-size: 15px;
-    font-style: initial;
-}
-
-.DComprar{
-  display: flex;
-  padding-top: 2px;
-}
-
-footer{
-    grid-area: footer;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-style: italic;
-}
-}
-
-@media only screen and (min-width: 801px) and (max-width: 1000px){
-body{ 
-    margin: 0;
-}  
-
-.contenedor {
-  display:grid;
-  grid-template: "logo logoGrande usr"
-                       "nav nav nav"
-                       "img-panoramica img-panoramica img-panoramica"
-                       "subtitulo subtitulo subtitulo"
-                       "section section section"
-                       "footer footer footer";
-}
-
-.logo { 
-    grid-area:logo;
-    display: flex;
-    padding: 10px;
-    width: 20%;
-}
-
-.menu-lateral{
-    margin: 0;
-    padding: 0;
-}
-
-.menu-desplegado{
-    display: flex;
-    padding: 0;
-    width: 100%;
-}
-
-
-.li-iconoMenu{
-    height: 40px;
-    padding-top: 10px;
-}
-
-.icono-menu{
-    width:0px;
-    height: 0px
-}
-
-.subtitulo{
-    grid-area:subtitulo;
-    border-top: 1px solid graytext;
-    border-bottom: 1px solid graytext;
-    color: darkgray;
-    text-align: center;
-}
-
-.nav ul li ul li ul{
-    display: none;
-}
-
-.nav ul li ul li a:hover + ul, .nav ul li ul li ul:hover {
-    display: block;
-}
-
-.nav { 
-    grid-area:nav; 
-    padding-top: 20px;
-    padding-bottom: 40px;
-    width: 90%;
-    margin-left: 5%;
-    display: flex;
-}
-
-.usr { 
-    grid-area:usr; 
-    margin-top: 10px;
-     width: 10%;
-     height: 30px;
-}
-
-.section { 
-    grid-area:section;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    margin-right: 10%;
-    margin: auto;
-}
-
-.logoGrande{
-    grid-area: logoGrande;
-    width: 500px;
-    height: 150px;
-}
-
-.despiegue{
-    position: absolute;
-    text-align: center;
-    border: 1px solid white;
-    background-color: white;
-    padding: 0;
-    width: 600px;
-}
-
-ul{
-    position: relative;
-    background-color: #f1f1f1;
-    width: 100%;
-    margin: 0;
-}
-
-.mensaje{
-    background-color: black;
-    color: white;
-}
-
-.img-panoramica{
-    grid-area: img-panoramica;
-    width: 90%;
-    margin-bottom: 40px;
-    margin-left: 5%;
-}
-
-.panoramica{
-    width: 100%;
-    height: 200px;
-}
-
-li{
-    width: 100%;
-    padding: 0;
-    list-style: none;
-    font-size: 20px;
-    background-color: #f1f1f1;
-}
-
-.logo{
-   width: 130px;
-   height: 130px;
-   padding-left: 20px;
-}
-
-.ilogo{
-   padding: 10px;
-   width: 100%;
-}
-
-a{
-   text-decoration: none;
-   text-transform: uppercase;
-   white-space: pre-wrap;
-   text-align: center;
-   display: block;
-   color: black;
-}
-
-h3{
-    font-family: inherit;
-    font-size: 25px;
-    margin: 0;
-}
-
-.producto{
-   width: 200px;
-   padding-top: 50px;
-   padding-right: 20px;
-}
-
-img{
-    height: 100%;
-    width: 100%;
-}
-
-.img{
-    height: 400px;
-    width: 200px;
-} 
-
-.producto .trasero{
-    display: none;
-}
-
-.producto .img:hover +img,.producto{
-    display: block;
-}
-
-.icono{
-    width:30px;
-    height:30px;
-    margin-top:40px;
-}
-
-p{
-    margin: 0;
     padding-bottom:10px;
     font-size: 20px;
     font-family:arial;
-}
-
-.DComprar{
-    text-align: center;
-    padding-top: 10px;;
-    margin-bottom: 20px;
-    font-size: 10px;
-}
-
-#colores{
-    width: 10px;
-    height: 10px;
-    border: 1px solid black;
-    background-color: blue;
-}
-
-#colores1{
-    width: 10px;
-    height: 10px;
-    border: 1px solid black;
-    background-color: green;
-}
-
-#colores2{
-    width: 10px;
-    height: 10px;
-    border: 1px solid black;
-    background-color: red;
-}
-
-.radio{
-    width: 20px;
-}
-
-.img-vestido{
-    display: none;
-}
-
-.img-blusa{
-    display: none;
 }
 
 button{
@@ -944,17 +968,46 @@ button{
     color: white;
 }
 
+.DComprar{
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+
 footer{
     grid-area: footer;
     background-color: black;
     color: white;
-    margin: 0;
     text-align: center;
     font-style: italic;
 }
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
 }
 
-@media only screen and (min-width: 1001px){
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1000px){
 body{ 
     margin: 0;
 }  
@@ -1044,7 +1097,7 @@ body{
 
 .logoGrande{
     grid-area: logoGrande;
-    width: 600px;
+    width: 400px;
     height: 150px;
 }
 
@@ -1200,6 +1253,318 @@ img{
     width: 220px;
 } 
 
+.icono{
+    width:30px;
+    height:30px;
+    margin-top:40px;
+}
+
+p{
+    margin: 0;
+    padding-bottom:10px;
+    font-size: 20px;
+    font-family:arial;
+}
+
+.DComprar{
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+#colores{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+
+button{
+    margin-left: 50px;
+    background-color: gray;
+    color: white;
+}
+
+footer{
+    grid-area: footer;
+    background-color: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+
+#iconos-footer{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#icon-correo{
+    width: 30px;
+    height: 20px;
+}
+
+#icon-redes{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+}
+
+@media only screen and (min-width: 1001px){
+body{ 
+    margin: 0;
+}  
+
+.contenedor {
+  display:grid;
+  grid-template: "logo logoGrande usr"
+                       "nav nav nav"
+                       "img-panoramica img-panoramica img-panoramica"
+                       "subtitulo subtitulo subtitulo"
+                       "section section section"
+                       "footer footer footer";
+}
+
+.logo { 
+    grid-area:logo;
+    display: flex;
+    padding: 10px;
+    width: 20%;
+}
+
+.menu-lateral{
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid grey;
+}
+
+.menu-desplegado{
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+
+
+.li-iconoMenu{
+    height: 40px;
+    padding-top: 10px;
+}
+
+.icono-menu{
+    width:0px;
+    height: 0px;
+    display: none;
+}
+
+.subtitulo{
+    grid-area:subtitulo;
+    border-top: 1px solid graytext;
+    border-bottom: 1px solid graytext;
+    color: darkgray;
+    text-align: center;
+}
+
+.nav { 
+    grid-area:nav; 
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+}
+
+.usr { 
+    grid-area:usr; 
+    margin-top: 10px;
+     width: 100%;
+     height: 30px;
+}
+
+#errorCarrito{
+    position: absolute;
+    width: 150px;
+    color: red;
+}
+
+#usrBoton{
+    font-family: "Pacifico", cursive;
+    font-style: italic;
+    color: black;
+    border: 0;
+    background-color: white;
+}
+
+.section { 
+    grid-area:section;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-right: 10%;
+    margin: auto;
+}
+
+.logoGrande{
+    grid-area: logoGrande;
+    width: 600px;
+    height: 150px;
+}
+
+.menu-desplegado li:hover > ul {
+    display: block;
+    color: black;
+}
+
+.menu-desplegado li ul:hover {
+    display: block;
+    color: black;
+}
+
+.menu-desplegado li a:hover {
+    font-weight: bold;
+}
+
+.despiegue ul {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.despiegue {
+    position: absolute;
+    top: 25em;
+    left: 0;
+    opacity: 0.8;
+    padding: 0px;
+    display: none;
+    text-align: center;
+    margin-right: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    font-size: 1px;
+}
+
+.despiegue a{
+    font-size: 15px;
+    margin-right: 25%;
+    
+}
+
+.iten{
+    padding-left: 15%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.mensaje{
+    background-color: black;
+    text-align: center;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 300px;
+}
+
+ul{
+    position: absolute;
+    width: 90%;
+    margin:0;
+}
+
+li{
+    text-align: center;
+}
+
+.img-panoramica{
+    grid-area: img-panoramica;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 5%;
+}
+
+#radio-panoramico{
+    display: flex;
+    padding-left: 45%;
+    padding-right: 45%;
+}
+
+#form{
+    width: 30px;
+    padding-left: 0px;
+    margin: 0px;
+}
+
+.panoramica{
+    width: 100%;
+    height: 200px;
+}
+
+li{
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+}
+
+.decoracion{
+    margin-left: 70%;
+    width: 150px;
+    height: 150px;
+}
+
+.logo{
+   width: 130px;
+   height: 130px;
+   padding-left: 20px;
+}
+
+.ilogo{
+   padding: 10px;
+   width: 100%;
+}
+
+#nusr{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+a{
+   text-decoration: none;
+   text-transform: uppercase;
+   white-space: pre-wrap;
+   text-align: center;
+   color: black;
+   font-family: 'Julius Sans One', sans-serif;
+}
+
+h3{
+    font-family: inherit;
+    font-size: 25px;
+    margin: 0;
+}
+
+.producto{
+   width: 220px;
+   padding-top: 50px;
+   padding-right: 20px;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.img{
+    height: 400px;
+    width: 220px;
+} 
+
 
 
 .icono{
@@ -1255,8 +1620,8 @@ footer{
 }
 
 #icon-redes{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     padding-right: 10px;
 }
 }

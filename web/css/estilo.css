@@ -1,0 +1,329 @@
+* { border:0;
+    margin:0;
+    padding:0;
+}
+
+.talle{
+    display: none;
+}
+
+.talles{
+   display: flex;
+}
+
+.talles div{
+    border: 1px solid graytext;
+    margin-right: 20px;
+    padding-top: 10px;
+    width:30px;
+    height: 30px;
+}
+
+.talles div:hover{
+    background-color: black;
+    color: white;
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+.zoom {
+    display:inline-block;
+    position: relative;
+}
+.zoom img:hover {
+    cursor:-webkit-zoom-in;
+}
+
+
+.nav-img img{
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.swiper-container img{
+    display: block;
+    width: 100%;
+    margin: auto;
+}
+
+.color{
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 1px;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    outline:0;
+}
+
+.blue{
+    background: blue;
+}
+
+.black{
+    background: black;
+}
+
+.red{
+    background: red;
+}
+
+.cantidad h5, .cantidad select, .talle h5, .talle a{
+    margin: 10px 0px;
+    display: inline-block;
+}
+
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color:#000;
+    opacity: 1;
+    background:white;
+}
+.swiper-pagination-bullet-active {
+    color:#fff;
+    background: #007aff;
+}
+
+
+
+
+@media only screen and (min-width: 64em){
+    .nav-img img{
+        width: 70%;
+    }
+}
+
+
+@media only screen and (min-width: 769px){
+    #slider{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 768px){
+    .temp{
+        display: none;
+    }
+
+}
+
+
+/*INICIO MODAL*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    bottom:0;
+    right:0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    padding-top: 15px;
+
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+
+/* Add Animation */
+.modal-content {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px black solid;
+    border-radius: 50%;
+    background: white;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/*FIN MODAL*/
+
+.contenedor{
+    display: grid;
+    grid-template:"header sesion"
+        " nav nav"
+        "section section"
+        "footer footer";
+    min-height: 100vh;
+    min-width: 80vw;
+    grid-template-rows:minmax(min-content, max-content) minmax(min-content,max-content) 1fr
+        minmax(min-content, max-content);
+    grid-template-columns:minmax(80%, 70%) minmax(20%, 30%);
+
+}
+
+
+@media (max-width: 768px ){
+    .contenedor{
+        display: grid;
+        grid-template:"nav header sesion"
+            "section  section section"
+            "footer footer footer";
+        min-height: 100vh;
+        min-width: 100vw;
+        grid-template-rows:minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
+        grid-template-columns:minmax(15%, 20%) minmax(70%, 60%) minmax(15%, 20%);
+    }
+    header .logoGrande img{
+        width: 50%;
+        display: block;
+        margin: auto;
+        padding: 10px;
+    }
+
+    header .logo img {
+        display: none;
+    }
+
+    #sesion > input{
+        display: none;
+    }
+
+    #sesion .icon img{
+        width: 60% !important;
+        display: block;
+        margin: auto;
+        padding: 10px;
+    }
+
+    header .logo{
+        justify-content: center;
+    }
+
+
+}
+
+
+
+@media (max-width: 425px ){
+    header .logoGrande img {
+        box-sizing: border-box; 
+        width: 70%;
+        display: block;
+        margin: auto;
+        padding: 10px;
+    }
+
+}
+
+
+
+ul{
+    list-style: none;
+}
+
+
+/*HEADER*/
+header{
+    grid-area:header;
+}
+
+header{
+    display: flex;
+}
+
+header .logo img, header .logoGrande img{
+    width: 60%;
+}
+
+#sesion{
+    grid-area:sesion;
+}
+
+#sesion .icon img{
+    width: 15%;
+}
+
+/*NAV*/
+nav{
+    grid-area:nav;
+}
+
+nav .menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu li {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+nav .menu li .submenu{
+    display: none;
+}
+
+
+/*SECTION*/
+
+section{
+    grid-area:section;
+}
+
+/*FOOTER*/
+footer{
+    grid-area:footer;
+}
+
+.row{
+      margin-right: 0;
+    margin-left: 0;
+}   

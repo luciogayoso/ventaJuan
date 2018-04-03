@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head> 
+        <meta charset="UTF-8">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <link rel="Shortcut Icon"  href="img/WhatsApp_Image_2018-01-30_at_16_21_37 (1).ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"  />
+        <link href="css/flexBoxGrid.css" rel="stylesheet" type="text/css"/>
+        <link href="css/swiper.css" rel="stylesheet" type="text/css"/>
+        <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+      </head>
+    <body>
+        <div class="contenedor">
+
+            <!--            CODIGO ALVARO-->
+            <section class="row center-sm">
+
+                <div id="slider" class=" col-xs-12">
+                    <div class="swiper-container"> 
+
+                        <div class="swiper-wrapper">
+                            <div id="frente" class="swiper-slide">
+                                <img src="http://www.rapsodia.com.ar/media/catalog/product/cache/58/image/9df78eab33525d08d6e5fb8d27136e95/r/a/rapsodiaar_11113813089c_15_1.jpg" alt=""/>
+                            </div>
+                            <div id="atras" class="swiper-slide">
+                                <img src="http://www.rapsodia.com.ar/media/catalog/product/cache/58/thumbnail/300x450/9df78eab33525d08d6e5fb8d27136e95/r/a/rapsodiaar_11113813089c_15_2.jpg" alt=""/>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+
+                <div id="secundarios" class="temp nav-img col-sm-2">      
+                    <img src="img/DSC_0668.JPG" alt=""/>
+                    <img src="img/DSC_0668@.JPG" alt=""/>
+                    </div>                  
+                <div class="temp col-sm-4">                        
+                    <div class='zoom' id='ex1' style="margin: 10px;">
+                        <img class="img-principal" style="width: 100%; margin: auto; display: block;" src="img/DSC_0668.JPG" alt='Daisy on the Ohoopee'/>
+                    </div>
+                </div>
+
+                <div id="detallesProducto" class="col-sm-3 col-xs-12">
+
+                    <h3 id="nombre">Vestido Eka</h3>
+                    <h4 id="precio">$ 4600</h4>
+                    <h5>Color:black</h5>
+                    <div id="colores">
+                    <a id="color1" class="color" href="#"></a>
+                    <a class="color" href="#"></a>
+                    <a class="color" href="#"></a>
+                    </div>
+               
+                    <div class="talles">
+                        <h5>Talles : </h5>
+                        <div class="talleXL">XL</div>
+                        <input id="talleXL" class="talle" name="talle" type="radio"value="XL" checked="false" />
+                        <div class="talleL">L</div>
+                        <input id="talleL" class="talle" name="talle" type="radio"value="L" checked="false" />
+                        <div class="talleM">M</div>
+                        <input id="talleM" class="talle" name="talle" type="radio"value="M" checked="false" />
+                        <div class="talleS">S</div>
+                        <input id="talleS" class="talle" name="talle" type="radio"value="S" checked="false" />
+                        <span id="elegirTalle"></span>
+                    </div>
+                    <div class="cantidad">
+                        <h5>Cantidad</h5>
+                        <select id="cantidad">
+                            <option selected disabled>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                        <span id="elegirCantidad"></span>
+                    </div>
+                    <button id="carrito">Agregar al carrito</button>
+                </div>
+
+            </section>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
+        <!-- FIN MODAL -->
+        <script src="js/jquery331.js" type="text/javascript"></script>
+        <script src="js/swiper.js" type="text/javascript"></script>
+        <script src="js/jqueryZoom.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+        <script src="js/cargarCarrito.js" type="text/javascript"></script>
+    </body>
+</html>

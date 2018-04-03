@@ -64,6 +64,11 @@ h2{
     color: white;
 }
 
+#agregarFoto:hover {
+    background-color: #FCA1D7;
+    color: white;
+}
+
 #formulario{
     padding-left: 10%;
     padding-right: 10%;
@@ -99,6 +104,15 @@ input{
 }
 
 #agregar{
+    width: 100px;
+    margin-left: 40%;
+    margin-top: 30px;
+    background-color: #FAE7F4;
+    color: black;
+    font-size: 20px;
+}
+
+#agregarFoto{
     width: 100px;
     margin-left: 40%;
     margin-top: 30px;
@@ -156,6 +170,18 @@ a{
 }
 
 #span9{
+    color: red;
+}
+
+#span10{
+    color: red;
+}
+
+#span11{
+    color: red;
+}
+
+#span12{
     color: red;
 }
 

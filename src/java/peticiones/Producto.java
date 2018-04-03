@@ -1,7 +1,7 @@
 package peticiones;
 
 public class Producto {
-    private String id;
+   private String id;
    private String codigo;
    private String nombre;
    private String foto;
@@ -13,6 +13,11 @@ public class Producto {
    private String idCarrito;
    private String tipo;
    private String error;
+   private String talleS;
+   private String talleM;
+   private String talleL;
+   private String talleXL;
+   private String descripcion;
 
 
     public String getNombre() {
@@ -133,5 +138,75 @@ public class Producto {
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    /**
+     * @return the talleS
+     */
+    public String getTalleS() {
+        return talleS;
+    }
+
+    /**
+     * @param talleS the talleS to set
+     */
+    public void setTalleS(String talleS) {
+        this.talleS = talleS;
+    }
+
+    /**
+     * @return the talleM
+     */
+    public String getTalleM() {
+        return talleM;
+    }
+
+    /**
+     * @param talleM the talleM to set
+     */
+    public void setTalleM(String talleM) {
+        this.talleM = talleM;
+    }
+
+    /**
+     * @return the talleL
+     */
+    public String getTalleL() {
+        return talleL;
+    }
+
+    /**
+     * @param talleL the talleL to set
+     */
+    public void setTalleL(String talleL) {
+        this.talleL = talleL;
+    }
+
+    /**
+     * @return the talleXL
+     */
+    public String getTalleXL() {
+        return talleXL;
+    }
+
+    /**
+     * @param talleXL the talleXL to set
+     */
+    public void setTalleXL(String talleXL) {
+        this.talleXL = talleXL;
+    }
+
+    /**
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
