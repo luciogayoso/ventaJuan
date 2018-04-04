@@ -1475,9 +1475,6 @@ exists or setup the property manually. For example like this:
             <isset property="dist.ear.dir"/>
         </condition>
         <property name="build.dir.to.clean" value="${build.web.dir}"/>
-        <delete includeEmptyDirs="true" quiet="true">
-            <fileset dir="${build.dir.to.clean}/WEB-INF/lib"/>
-        </delete>
         <delete dir="${build.dir}"/>
         <available file="${build.dir.to.clean}/WEB-INF/lib" property="status.clean-failed" type="dir"/>
         <delete dir="${dist.dir}"/>
