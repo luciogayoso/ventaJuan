@@ -1319,20 +1319,14 @@ body{
 
 .contenedor {
   display:grid;
-  grid-template: "logo logoGrande usr"
-                       "nav nav nav"
-                       "img-panoramica img-panoramica img-panoramica"
-                       "subtitulo subtitulo subtitulo"
-                       "section section section"
-                       "footer footer footer";
+  grid-template: "logoGrande usr"
+                 "nav nav"
+                 "img-panoramica img-panoramica"
+                 "subtitulo subtitulo"
+                 "section section"
+                       "footer footer";
 }
 
-.logo { 
-    grid-area:logo;
-    display: flex;
-    padding: 10px;
-    width: 20%;
-}
 
 .menu-lateral{
     margin: 0;
@@ -1377,7 +1371,7 @@ body{
 }
 
 .usr { 
-    grid-area:usr; 
+    grid-area:usr;
     margin-top: 10px;
      width: 100%;
      height: 30px;
@@ -1397,19 +1391,28 @@ body{
     background-color: white;
 }
 
+.incio-sesion{
+    margin-left: 50%;
+}
+
+
 .section { 
     grid-area:section;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    margin-right: 10%;
-    margin: auto;
+    margin-right: 15%;
+    margin-left: 15%;
 }
 
 .logoGrande{
     grid-area: logoGrande;
-    width: 600px;
-    height: 150px;
+    margin: 0px;
+}
+
+h1{
+   font-size: 70px;
+   font-family: "Great vibes", cursive;
+   text-align: right;
 }
 
 .menu-desplegado li:hover > ul {
@@ -1468,7 +1471,7 @@ body{
     width: 100%;
     color: white;
     position: absolute;
-    top: 300px;
+    top: 230px;
 }
 
 ul{
@@ -1487,6 +1490,7 @@ li{
     margin-top: 40px;
     margin-bottom: 40px;
     margin-left: 5%;
+    height: 800px;
 }
 
 #radio-panoramico{
@@ -1503,7 +1507,7 @@ li{
 
 .panoramica{
     width: 100%;
-    height: 200px;
+    height: 100%;
 }
 
 li{
@@ -1550,9 +1554,9 @@ h3{
 }
 
 .producto{
-   width: 220px;
+   width: 300px;
    padding-top: 50px;
-   padding-right: 20px;
+   padding-right: 50px;
 }
 
 img{
@@ -1561,16 +1565,15 @@ img{
 }
 
 .img{
-    height: 400px;
-    width: 220px;
+    height: 500px;
+    width: 300px;
 } 
-
-
 
 .icono{
     width:30px;
     height:30px;
-    margin-top:40px;
+    margin-top: 40px;
+    margin-left: 50%;
 }
 
 p{
@@ -1594,22 +1597,28 @@ p{
 }
 
 button{
-    margin-left: 50px;
     background-color: gray;
     color: white;
 }
 
 footer{
     grid-area: footer;
-    background-color: black;
-    color: white;
+    background-color: #F3F3F3;
+    color: black;
     margin: 0;
+    height: 200px;
     text-align: center;
-    font-style: italic;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+footer h3{
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 #iconos-footer{
     display: flex;
+    padding-top: 20px;
     padding-left: 45%;
     padding-right: 45%;
 }
@@ -1620,8 +1629,8 @@ footer{
 }
 
 #icon-redes{
-    width: 20px;
-    height: 20px;
-    padding-right: 10px;
-}
+    width: 30px;
+    height: 30px;
+    padding-right: 30px;
+} 
 }
