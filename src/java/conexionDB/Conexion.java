@@ -7,8 +7,8 @@ public class Conexion {
     private static Connection conn;
     private static final String driver = "com.mysql.jdbc.Driver";
     private static final String user = "root";
-    private static final String clave = "MHGgvk61727";
-    private static final String url = "jdbc:mysql://node21118-noelialp.jelastic.cloudhosted.es:3306/e-comers";
+    private static final String clave = "";
+    private static final String url = "jdbc:mysql://localhost:3306/e-comers";
 
     public Conexion() {
     conn = null;

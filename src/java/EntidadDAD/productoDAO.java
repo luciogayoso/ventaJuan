@@ -75,6 +75,68 @@ public class productoDAO {
     
     }
     
+      public List recuperarOtroColores(String s){
+        Conexion con = new Conexion();
+        Connection reg = con.getConnection();
+        PreparedStatement prs = null;
+        List resultado = new ArrayList<>();
+        String sql = "SELECT * FROM `otroscolores` WHERE id_producto = ?";
+        try {
+            prs = reg.prepareStatement(sql);
+            prs.setString(1, s);
+            ResultSet rs = prs.executeQuery();
+             ResultSetMetaData md = rs.getMetaData();
+            int columns = md.getColumnCount();
+             
+            while(rs.next()) {
+                HashMap row = new HashMap();
+                resultado.add(row);
+              
+                for (int i = 1; i <= columns; i++) {
+                    row.put(md.getColumnName(i),rs.getString(i));
+                }
+                
+            }  return resultado;
+            
+        } catch (Exception e) {
+            resultado.add(e);
+            
+            return resultado;
+        }
+    
+    }
+    
+    public List recuperarProductoTipo(String s){
+        Conexion con = new Conexion();
+        Connection reg = con.getConnection();
+        PreparedStatement prs = null;
+        List resultado = new ArrayList<>();
+        String sql = "SELECT id_producto , p_nombre , p_img , p_color FROM `producto` WHERE p_tipo=?";
+        try {
+            prs = reg.prepareStatement(sql);
+            prs.setString(1, s);
+            ResultSet rs = prs.executeQuery();
+             ResultSetMetaData md = rs.getMetaData();
+            int columns = md.getColumnCount();
+             
+            while(rs.next()) {
+                HashMap row = new HashMap();
+                resultado.add(row);
+              
+                for (int i = 1; i <= columns; i++) {
+                    row.put(md.getColumnName(i),rs.getString(i));
+                }
+                
+            }  return resultado;
+            
+        } catch (Exception e) {
+            resultado.add(e);
+            
+            return resultado;
+        }
+    
+    }
+    
     public String cargarProsucto(Producto p){
     
         Conexion con = new Conexion();

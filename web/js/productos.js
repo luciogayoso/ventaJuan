@@ -29,10 +29,41 @@ carrito.addEventListener("mouseover",function (){
 function pedirProducto(){
    var pagina = document.querySelector(".subtitulo");
     var titulo = pagina.childNodes;
-    console.log(titulo[0].textContent);
+   var titulos = titulo[0].textContent;
    
+    if (titulos === "Novedades"){
+        var xhr = ajaxHeader("GET","./cargarProductos?pagina =");
+  xhr.onreadystatechange = function (){
+            if (xhr.readyState === 4 && xhr.status === 200){
+               var respuesta = xhr.responseText; 
+               var json = JSON.parse(respuesta);
+               var seccion = document.querySelector(".section");
+                var output = '';
+                  
+                                for (var i = 0; i < json.length; i++) {
+
+                    output += '<div class="producto" id="'+ json[i].id_producto +'" >\n\
+                    <div class="img">\n\
+                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
+                    </div>\n\
+                    <div class="DComprar">\n\
+                    <p>' + json[i].p_nombre + '</p>\n\
+                    <div id="color'+json[i].id_producto+'"> \n\
+                    <button id='+ json[i].id_producto +' onclick="otrosColores(this)" style= "background-color:white;border:0px;color:black;">Colores</button>\n\
+                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input id="'+ json[i].p_img +'"  name="color" class="otros1" value="'+ json[i].id_producto +'" onclick="cambiarFotoRadio(this)" type="radio" />\n\
+                    </div><br>\n\
+                    <button>Comprar</button>\n\
+                    </div>\n\
+                    </div>';
+          }              
+                 seccion.innerHTML = output; 
+      }           
+  };
+   xhr.send();
+        
+    }else {
     
-  var xhr = ajaxHeader("GET","./cargarProductos?pagina =");
+  var xhr = ajaxHeader("GET","./seleccionarTipoPro?paginaT="+titulos);
   xhr.onreadystatechange = function (){
             if (xhr.readyState === 4 && xhr.status === 200){
                var respuesta = xhr.responseText; 
@@ -41,16 +72,18 @@ function pedirProducto(){
                
                 var output = '';
                        
-    
-                                for (var i = 0; i < json.length; i++) {
+                 for (var i = 0; i < json.length; i++) {
 
-                    output += '<div class="producto">\n\
+                    output += '<div class="producto" id="'+ json[i].id_producto +'" >\n\
                     <div class="img">\n\
                     <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
                     </div>\n\
                     <div class="DComprar">\n\
                     <p>' + json[i].p_nombre + '</p>\n\
-                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input name="color" type="radio" />\n\
+                    <div id="color'+json[i].id_producto+'"> \n\
+                    <button id='+ json[i].id_producto +' onclick="otrosColores(this)">Colores</button>\n\
+                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input id="'+ json[i].p_img +'" class="otros1"  name="color" value="'+ json[i].id_producto +'" onclick="cambiarFotoRadio(this)" type="radio" />\n\
+                    </div><br>\n\
                     <button>Comprar</button>\n\
                     </div>\n\
                     </div>';
@@ -58,10 +91,83 @@ function pedirProducto(){
                                 
                             
                  seccion.innerHTML = output;
-                console.log(json[0].p_img);
-            }           
+           }           
   };
    xhr.send();
+    }
+}
+
+
+function otrosColores(e){
+      
+      var idProducto = e.attributes[0].nodeValue;
+    var divId = idProducto+"divColoras";
+    var divColor = document.getElementById(divId);
+    if (divColor === null){
+    var xhr = ajaxHeader("GET","./seleccionarTipoPro?contenido=null&idPro="+idProducto);
+  xhr.onreadystatechange = function (){
+            if (xhr.readyState === 4 && xhr.status === 200){
+               var respuesta = xhr.responseText;
+               var json = JSON.parse(respuesta);
+               var id =idProducto;
+          var producto = document.getElementById(id);
+              var idDiv = "color"+id;
+          var div = document.getElementById(idDiv);
+          
+                  
+                for (var i = 0; i < json.length; i++) {
+            
+                 var input = document.createElement("input");
+                 input.setAttribute("id","colores");
+                 input.setAttribute("style","background-color:" + json[i].o_color );
+            
+                 var inputRadio = document.createElement("input");
+                 inputRadio.setAttribute("id",json[i].o_img);
+                 inputRadio.setAttribute("name","color");
+                 inputRadio.setAttribute("class","otros");
+                 inputRadio.setAttribute("value",idProducto);
+                 inputRadio.setAttribute("type","radio");
+                 inputRadio.setAttribute("onclick","cambiarFotoRadio(this)");
+                div.appendChild(input);
+                div.appendChild(inputRadio);
+                
+                }
+                 
+      }           
+     };
+    xhr.send();
+    }     
+ }
+
+function cambiarFotoRadio(e){
+   var idFoto = e.attributes[3].nodeValue;
+   var classNombre = e.attributes[2].nodeValue;
+   var imagenes = document.querySelectorAll("#imagen");
+   
+  var ruta = e.attributes[0].nodeValue;
+   var rutaCompleta = "http://localhost:8080/ventaJuan/img/"+ruta;
+   
+    for (var i = 0; i< imagenes.length;i++){
+        var localImg = imagenes[i].attributes[2].nodeValue;
+        var evento = imagenes[i];   
+        
+        if (localImg === idFoto){
+            if (classNombre === "otros1"){
+                evento.src = rutaCompleta;  
+                evento.addEventListener("mouseover",cambioFoto1,false);
+                evento.addEventListener("mouseout",cambioFotob1,false);
+                return;
+            }else {
+                evento.src = rutaCompleta;
+                evento.onmouseover = "";
+                evento.onmouseout = "";
+                return;
+            }
+             
+        }
+    }
+   
+   
 }
 
 function pedirProductob(){
@@ -114,6 +220,17 @@ function cambioFotob(e){
     e.src = nuevaRuta;
 }
 
+function cambioFotob1(e){
+    var ruta = e.target.src;
+    var rutaDivida = ruta.split("@");
+    var extencion = rutaDivida[1];
+    var rutaCortada = rutaDivida[0];
+    
+    var nuevaRuta = rutaCortada+extencion;
+    
+    e.target.src = nuevaRuta;
+}
+
 function cambioFoto(e){
     var ruta = e.src;
     var rutaDivida = ruta.split(".");
@@ -123,6 +240,18 @@ function cambioFoto(e){
     var nuevaRuta = rutaCortada +"@."+extencion;
     
     e.src = nuevaRuta;
+}
+
+function cambioFoto1(e){
+    var ruta = e.target.src;
+    var img = e.target;
+    var rutaDivida = ruta.split(".");
+    var extencion = rutaDivida[1];
+    var rutaCortada = rutaDivida[0];
+    
+    var nuevaRuta = rutaCortada +"@."+extencion;
+    
+    img.src = nuevaRuta;
 }
 
 var inicio = document.querySelector(".incio-sesion");
@@ -141,7 +270,16 @@ var radio2 = radio[1];
 radio2.addEventListener("click",elegirFoto,false);
 var radio3 = radio[2];
 radio3.addEventListener("click",elegirFoto,false);
-    function  detalleProducto(e){
+var radio4 = radio[3];
+radio4.addEventListener("click",elegirFoto,false);
+var radio5 = radio[4];
+radio5.addEventListener("click",elegirFoto,false);
+var radio6 = radio[5];
+radio6.addEventListener("click",elegirFoto,false);
+var radio7 = radio[6];
+radio7.addEventListener("click",elegirFoto,false);
+
+function  detalleProducto(e){
         
         idProducto = e.attributes[2].nodeValue;
         localStorage.setItem("idProducto",idProducto);
@@ -152,24 +290,38 @@ function elegirFoto(e){
     var rutaFoto = e.target.value;
     var contenedor = document.querySelector(".panoramica");
 
-contenedor.src=rutaFoto;
+contenedor.src = rutaFoto;
 
 }
 
-
 var imagenes = new Array(
-        ["img/foto-panoramica.jpg"],
-        ["img/foto-panoramica1.jpg"],
-        ["img/foto-panoramica2.jpg"]
-        );
+        ["img/Produccion NoeliaLP20185.jpg"],
+        ["img/Produccion NoeliaLP20184.jpg"],
+        ["img/Produccion NoeliaLP20183.jpg"],
+        ["img/tabla talles Noelialp.jpg"],
+        ["img/look book 2018.jpg"],
+        ["img/look book 20181.jpg"],
+        ["img/ecocuero.jpg"]
+           
+);
 
 function cambiarFoto(){
 var contenedor = document.querySelector(".panoramica");
 
-var index = Math.floor((Math.random()*imagenes.length));
+  var index = localStorage.getItem("index");
+    
+    if (index == undefined){
+    
+    index = 0;
+    
  var ra1 = radio1.id;
  var ra2 = radio2.id;
  var ra3 = radio3.id;
+ var ra4 = radio1.id;
+ var ra5 = radio2.id;
+ var ra6 = radio3.id;
+ var ra7 = radio3.id;
+ 
     if (index == ra1){
         radio1.checked=true;;
         contenedor.src = imagenes[index];
@@ -179,6 +331,58 @@ var index = Math.floor((Math.random()*imagenes.length));
     }else if (index == ra3){
         radio3.checked=true;
         contenedor.src = imagenes[index];
+    }else if (index == ra4){
+        radio4.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra5){
+        radio5.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra6){
+        radio6.checked=true;
+        contenedor.src = imagenes[index];
+    }else if (index == ra7){
+        radio7.checked = true;
+        contenedor.src = imagenes[index];
+    }
+    index++;
+       localStorage.setItem("index",index); 
+    
+    }else if (index < 7 && index >= 0){
+        var ra1 = radio1.id;
+        var ra2 = radio2.id;
+        var ra3 = radio3.id;
+        var ra4 = radio4.id;
+        var ra5 = radio5.id;
+        var ra6 = radio6.id;
+        var ra7 = radio7.id;
+ 
+    if (index == ra1){
+        radio1.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra2){
+        radio2.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra3){
+        radio3.checked=true;
+        contenedor.src = imagenes[index];
+    }else if (index == ra4){
+        radio4.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra5){
+        radio5.checked=true;;
+        contenedor.src = imagenes[index];
+    }else if (index == ra6){
+        radio6.checked=true;
+        contenedor.src = imagenes[index];
+    }else if (index == ra7){
+        radio7.checked = true;
+        contenedor.src = imagenes[index];
+    }
+    index++;
+       localStorage.setItem("index",index); 
+      
+    }else {
+        localStorage.removeItem("index");
     }
 }
 
