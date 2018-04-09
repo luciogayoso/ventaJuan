@@ -61,6 +61,12 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
         if (put.equals("true")) {
         String idProducto = request.getParameter("producto");
         String color = request.getParameter("color");
+        String cantidadS = request.getParameter("CS");
+        String cantidadM = request.getParameter("CM");
+        String cantidadL   = request.getParameter("CL");
+        String cantidadXL = request.getParameter("CXL");
+        String cantidadTotal = request.getParameter("CT");
+        
         Part foto = request.getPart("foto");
         String nombreArchivoFoto = Paths.get(foto.getSubmittedFileName()).getFileName().toString();
 
@@ -68,6 +74,11 @@ public static  final String aEnviar = "C:/Users/Vitalia Miranda/Documents/NetBea
         o.setIdProducto(idProducto);
         o.setFoto(nombreArchivoFoto);
         o.setColor(color);
+        o.setCS(cantidadS);
+        o.setCM(cantidadM);
+        o.setCL(cantidadL);
+        o.setCXL(cantidadXL);
+        o.setCT(cantidadTotal);
         
         productoDAO cargar = new productoDAO();
         String resultado = cargar.cargarOtrosColores(o);

@@ -1,0 +1,231 @@
+@media (max-width:767px) {
+
+    /*    SECTION*/
+    section{
+        grid-area:section;
+    }
+
+  section #galeria, section #filtro{
+        margin-top: 15px;
+    }
+
+    
+    /*MODIFICACION SWIPER*/
+    .swiper-button-next, .swiper-button-prev{
+        width: 30px;
+        height: 30px;
+    }
+    /*FIN*/
+}
+
+
+@media(min-width:768px) and (max-width:1023px){
+
+    /*    SECTION*/
+    section #galeria, section #filtro{
+        margin-top: 15px;
+    }
+    
+    section #galeria .galeria-img{
+        display:none;
+    }
+    
+    
+    /*    SECTION*/
+    section {
+        grid-area: section;
+    }
+    section #galeria, section #filtro {
+        margin-top: 15px;
+    }
+    
+    section #filtro h3{
+        text-align:center;
+        margin-bottom:10px;
+    }
+    
+    section #filtro .tipologia, section #filtro .talle{
+        position:relative;
+    }    
+    section #filtro .tipologia:after, section #filtro .talle:after{    
+        line-height: 35px;
+        margin-right: 10px;
+        content: "-";
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 200ms;
+        color: black;
+    }
+    section #filtro .tipologia > a, section #filtro .talle > a{
+        padding: 10px 0px;
+        padding-left: 15px;
+        display: block;
+        font-weight: bold;
+        box-shadow: 0px 0px 1px 1px grey;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    section #filtro .tipologia ol, section #filtro .talle ol{
+        display: block;
+    }
+    section #filtro .tipologia ol li,section #filtro .talle ol li{
+        padding-bottom:5px;
+    }
+    
+    section #filtro ul > .tipologia.active:after, section #filtro ul > .talle.active:after {
+        content:"+";
+    }
+    
+    
+    section #galeria article .container-article{
+       margin-bottom:15px;
+       box-shadow:0px 0px 2px 2px grey;
+    }
+    
+    
+    section #galeria article .container-article .detallePedido{
+        padding:10px;
+        text-align:center;
+        background:white;
+    }
+    
+    .detallePedido .colores {
+        padding: 10px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    /*    CHECKED COLOR*/
+     .colores > li > input{
+        display: none
+    }
+      .colores > li > label{
+        width: 20px;
+        display: block;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0px 3px;
+    }
+     .colores  li  input:checked ~ label{
+        border:3px solid grey;
+    }
+    
+  
+    /*MODIFICACION SWIPER*/
+    .swiper-button-next, .swiper-button-prev{
+        width: 30px;
+        height: 30px;
+    }
+    /*FIN*/
+}
+
+@media(min-width:1024px){
+
+    /*    SECTION*/
+    section {
+        grid-area: section;
+    }
+    section #galeria, section #filtro {
+        margin-top: 15px;
+    }
+    
+    section #filtro h3{
+        text-align:center;
+        margin-bottom:10px;
+    }
+    
+    section #filtro .tipologia, section #filtro .talle{
+        position:relative;
+    }    
+    section #filtro .tipologia:after, section #filtro .talle:after{    
+        line-height: 35px;
+        margin-right: 10px;
+        content: "-";
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 200ms;
+        color: black;
+    }
+    section #filtro .tipologia > a, section #filtro .talle > a{
+        padding: 10px 0px;
+        padding-left: 15px;
+        display: block;
+        font-weight: bold;
+        box-shadow: 0px 0px 1px 1px grey;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    section #filtro .tipologia ol, section #filtro .talle ol{
+        display: block;
+    }
+    section #filtro .tipologia ol li,section #filtro .talle ol li{
+        padding-bottom:5px;
+    }
+    
+    section #filtro ul > .tipologia.active:after, section #filtro ul > .talle.active:after {
+        content:"+";
+    }
+    
+    
+    section #galeria article .container-article{
+       margin-bottom:15px;
+       box-shadow:0px 0px 2px 2px grey;
+    }
+    
+    section #galeria .slider-img{
+        display:none;
+    }
+    
+/*    CAMBIO DE IMAGEN*/
+    section #galeria  .galeria-img .container-article .hover-img {
+        position: relative;
+    }
+    section #galeria  .galeria-img .container-article .hover-img .frente{
+        z-index: 999;
+    }
+    section #galeria  .galeria-img .container-article .hover-img:hover .atras{
+        display: block;
+        z-index: 9999;
+    }
+    section #galeria  .galeria-img .container-article .hover-img .atras{
+        position: absolute;
+        top: 0px;
+        z-index: -1;
+    }
+/*    FIN CAMBIO DE IMAGEN*/
+    section #galeria article .container-article .detallePedido{
+        padding:10px;
+        text-align:center;
+        background:white;
+    }
+    
+    .detallePedido .colores {
+        padding: 10px 0px;
+        display: flex;
+        justify-content: center;
+    }
+    /*    CHECKED COLOR*/
+     .colores > li > input{
+        display: none
+    }
+      .colores > li > label{
+        width: 20px;
+        display: block;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0px 3px;
+    }
+     .colores  li  input:checked ~ label{
+        border:3px solid grey;
+    }
+ 
+    /*MODIFICACION SWIPER*/
+    .swiper-button-next, .swiper-button-prev{
+        width: 30px;
+        height: 30px;
+    }
+    /*FIN*/
+}

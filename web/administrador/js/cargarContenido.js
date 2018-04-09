@@ -122,6 +122,40 @@ stockTalle.sumar = function (){
     }
 };
 
+stockTalle.sumarI = function (){
+    var talleIS = document.querySelector("#talleIS");
+    var talleIM = document.querySelector("#talleIM");
+    var talleIL = document.querySelector("#talleIL");
+    var talleIXL = document.querySelector("#talleIXL");
+    
+    if (talleIS.value === ""){
+        talleIS.value = 0;
+        stockTalle.sumarI();
+    }else if (talleIM.value === ""){
+        talleIM.value = 0;
+        stockTalle.sumarI();
+    }else if (talleIL.value === ""){
+        talleIL.value = 0; 
+        stockTalle.sumarI();
+    }else if (talleIXL.value === ""){
+        talleIXL.value = 0;  
+        stockTalle.sumarI();
+    }else {
+        var s = parseInt(talleIS.value);
+        var m = parseInt(talleIM.value);
+        var l = parseInt(talleIL.value);
+        var xl = parseInt(talleIXL.value);
+
+
+        var inputStockI = document.querySelector("#stockI");
+
+        var n = s + m + l + xl;
+
+        inputStockI.value = n; 
+    }
+};
+
+
 Enviar = {};
 Enviar.enviarOtraFoto = function (){
     var eligirPro2 = document.querySelector(".productos");
@@ -155,6 +189,12 @@ Enviar.enviar = function () {
     var eligirPro = document.querySelector("#productos");
     var elegir = eligirPro.selectedOptions[0].attributes[0].value;
     var colorUpdate = document.querySelector("#colorUpdate").value;
+    var talleIS = document.querySelector("#talleIS").value;
+    var talleIM = document.querySelector("#talleIM").value;
+    var talleIL = document.querySelector("#talleIL").value;
+    var talleIXL = document.querySelector("#talleIXL").value;
+    var cantidadC = document.querySelector("#stockI").value;
+    
     if (elegir === ""){
         var span = document.querySelector("#span8");
         span.innerHTML = "Debe elegir un producto";
@@ -170,7 +210,12 @@ Enviar.enviar = function () {
         data.append("producto", elegir);
         data.append("foto", updateFoto.files[0]);
         data.append("color", colorUpdate);
-   
+        data.append("CS",talleIS);
+        data.append("CM",talleIM);
+        data.append("CL",talleIL);
+        data.append("CXL",talleIXL);
+        data.append("CT",cantidadC);
+        
  var xhr = ajaxFile("POST","../cargarProductos");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -324,6 +369,15 @@ var talleXL = document.querySelector("#XL");
 talleXL.addEventListener("input",function (){ stockTalle.sumar();},false);
 var descripcion = document.querySelector("#descripcion");
 
+var talleIS = document.querySelector("#talleIS");
+talleIS.addEventListener("input",function (){ stockTalle.sumarI();},false);
+var talleIM = document.querySelector("#talleIM");
+talleIM.addEventListener("input",function (){ stockTalle.sumarI();},false);
+var talleIL = document.querySelector("#talleIL");
+talleIL.addEventListener("input",function (){ stockTalle.sumarI();},false);
+var talleIXL = document.querySelector("#talleIXL");
+talleIXL.addEventListener("input",function (){ stockTalle.sumarI();},false);
+    
 var eligirPro = document.querySelector("#productos");
 var colorUpdate = document.querySelector("#colorUpdate");
 var eligirPro2 = document.querySelector(".productos");

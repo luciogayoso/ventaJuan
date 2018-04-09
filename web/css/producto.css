@@ -1395,6 +1395,9 @@ body{
     margin-left: 50%;
 }
 
+.cerrar-sesion{
+    margin-left: 50%;
+} 
 
 .section { 
     grid-area:section;
@@ -1536,6 +1539,7 @@ li{
 
 #nusr{
   font-family: 'Open Sans Condensed', sans-serif;
+  margin-left: 50%;
 }
 
 a{
@@ -1577,7 +1581,6 @@ img{
 }
 
 p{
-    margin: 0;
     padding-bottom:10px;
     font-size: 20px;
     font-family:arial;

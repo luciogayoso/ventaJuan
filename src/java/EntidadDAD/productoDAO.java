@@ -14,12 +14,12 @@ import peticiones.Producto;
 
 public class productoDAO {
     
-    public List recuperar(){
+public List recuperar(){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
         List resultado = new ArrayList<>();
-        String sql = "SELECT id_producto , p_nombre , p_img , p_color FROM `producto` ";
+        String sql = "SELECT id_producto , p_nombre , p_img , p_img_b , p_color FROM `producto` ";
         try {
             prs = reg.prepareStatement(sql);
             ResultSet rs = prs.executeQuery();
@@ -44,7 +44,7 @@ public class productoDAO {
     
     }
     
-    public List recuperarProducto(String s){
+public List recuperarProducto(String s){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
@@ -75,7 +75,7 @@ public class productoDAO {
     
     }
     
-      public List recuperarOtroColores(String s){
+public List recuperarOtroColores(String s){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
@@ -106,7 +106,7 @@ public class productoDAO {
     
     }
     
-    public List recuperarProductoTipo(String s){
+public List recuperarProductoTipo(String s){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
@@ -136,13 +136,45 @@ public class productoDAO {
         }
     
     }
+
+public List recuperarProductoTipoLiquidacion(String s){
+        Conexion con = new Conexion();
+        Connection reg = con.getConnection();
+        PreparedStatement prs = null;
+        List resultado = new ArrayList<>();
+        String sql = "SELECT id_producto , p_nombre , p_img , p_color FROM `producto` WHERE p_tipo=?";
+        try {
+            prs = reg.prepareStatement(sql);
+            prs.setString(1, s);
+            ResultSet rs = prs.executeQuery();
+             ResultSetMetaData md = rs.getMetaData();
+            int columns = md.getColumnCount();
+             
+            while(rs.next()) {
+                HashMap row = new HashMap();
+                resultado.add(row);
+              
+                for (int i = 1; i <= columns; i++) {
+                    row.put(md.getColumnName(i),rs.getString(i));
+                }
+                
+            }  return resultado;
+            
+        } catch (Exception e) {
+            resultado.add(e);
+            
+            return resultado;
+        }
     
-    public String cargarProsucto(Producto p){
+    }
+
+    
+public String cargarProsucto(Producto p){
     
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
-        String sql = "INSERT INTO `producto` ( `p_codigo`, `p_nombre`, `p_precio`, `p_img`, `p_img_b`, `p_stock`, `p_color`, `p_tipo`, `p_talleS`, `p_talleM`, `p_talleL`, `p_talleXL`, `p_despcripcion`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO `producto` ( `p_codigo`, `p_nombre`, `p_precio`, `p_img`, `p_img_b`, `p_stock`, `p_color`, `p_tipo`, `p_talleS`, `p_talleM`, `p_talleL`, `p_talleXL`,`p_liquidacion`, `p_despcripcion`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'false',?)";
         try {
             prs = reg.prepareStatement(sql);
             prs.setString(1,p.getCodigo());
@@ -167,17 +199,23 @@ public class productoDAO {
     
     }
     
-     public String cargarOtrosColores(OtrosColores p){
+public String cargarOtrosColores(OtrosColores p){
     
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
-        String sql = "INSERT INTO `otroscolores` (`id_producto`, `o_img`, `o_color`) VALUES (?,?,?);";
+        String sql = "INSERT INTO `otroscolores` (`id_producto`, `o_img`, `o_color`,`o_cantidadS`, `o_cantidadM`, `o_cantidadL`, `o_cantidadXL`, `o_cantidadTotal`) VALUES (?,?,?,?,?,?,?,?);";
         try {
             prs = reg.prepareStatement(sql);
             prs.setString(1,p.getIdProducto());
             prs.setString(2,p.getFoto());
             prs.setString(3,p.getColor());
+            prs.setString(4,p.getCS());
+            prs.setString(5,p.getCM());
+            prs.setString(6,p.getCL());
+            prs.setString(7,p.getCXL());
+            prs.setString(8,p.getCT());
+            
             prs.execute();
             
             return "Se guardo";
@@ -187,7 +225,7 @@ public class productoDAO {
     
     }
      
-      public String cargarOtrosFoto(OtrosColores p){
+public String cargarOtrosFoto(OtrosColores p){
     
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
@@ -206,7 +244,7 @@ public class productoDAO {
     
     }
       
-       public String cargarCarrito(Carrito c){
+public String cargarCarrito(Carrito c){
     
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
@@ -227,7 +265,7 @@ public class productoDAO {
     
     }
     
-    public List mostrarFoto() {
+public List mostrarFoto() {
         List<String> resultado = new ArrayList<>();
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
@@ -250,7 +288,7 @@ public class productoDAO {
         
     }
    
-    public List recuperarCarritoIdPro(String id){
+public List recuperarCarritoIdPro(String id){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
@@ -282,7 +320,7 @@ public class productoDAO {
     }
     
     
-        public List recuperarProductoCarrito(String id){
+public List recuperarProductoCarrito(String id){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;
@@ -313,7 +351,7 @@ public class productoDAO {
     
     }
         
-  public String deleteProductoCarrito(String id){
+public String deleteProductoCarrito(String id){
         Conexion con = new Conexion();
         Connection reg = con.getConnection();
         PreparedStatement prs = null;

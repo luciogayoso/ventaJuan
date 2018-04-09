@@ -26,13 +26,127 @@ carrito.addEventListener("mouseover",function (){
        span.textContent = "";  
 });
 
+var vestido = document.querySelector("#Vestido");
+vestido.addEventListener("click",pedirProductoPagima,false);
+
+var falda = document.querySelector("#Falda");
+falda.addEventListener("click",pedirProductoPagima,false);
+
+var blusa = document.querySelector("#Blusas");
+blusa.addEventListener("click",pedirProductoPagima,false);
+
+var camisa = document.querySelector("#Camisa");
+camisa.addEventListener("click",pedirProductoPagima,false);
+
+var campera = document.querySelector("#Campera");
+campera.addEventListener("click",pedirProductoPagima,false);
+
+var Mvestido = document.querySelector(".MiniVestido");
+Mvestido.addEventListener("click",pedirProductoPagimaMini,false);
+
+var Mfalda = document.querySelector(".MiniFalda");
+Mfalda.addEventListener("click",pedirProductoPagimaMini,false);
+
+var Mblusa = document.querySelector(".MiniBlusas");
+Mblusa.addEventListener("click",pedirProductoPagimaMini,false);
+
+var liquidacion = document.querySelector("#Liquidacion");
+liquidacion.addEventListener("click",pedirProductoPagima,false);
+
+var historia = document.querySelector("#Historia");
+historia.addEventListener("click",pedirProductoPagimaLH,false);
+
+var sesionFotos = document.querySelector("#Sesionfotos");
+sesionFotos.addEventListener("click",pedirProductoPagimaLH,false);
+
+
+function pedirProductoPagima(e){
+  var titulos = e.target.attributes[1].nodeValue;
+ 
+  var xhr = ajaxHeader("GET","./seleccionarTipoPro?contenido="+titulos);
+  xhr.onreadystatechange = function (){
+            if (xhr.readyState === 4 && xhr.status === 200){
+               var respuesta = xhr.responseText; 
+               var json = JSON.parse(respuesta);
+               var seccion = document.querySelector(".section");
+               
+                var output = '';
+                       
+                 for (var i = 0; i < json.length; i++) {
+
+                    output += '<div class="producto" id="'+ json[i].id_producto +'" >\n\
+                    <div class="img">\n\
+                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
+                    </div>\n\
+                    <div class="DComprar">\n\
+                    <p>' + json[i].p_nombre + '</p>\n\
+                    <div id="color'+json[i].id_producto+'"> \n\
+                    <button id='+ json[i].id_producto +' onclick="otrosColores(this)" style= "background-color:white;border:0px;color:black;">Colores</button>\n\
+                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input id="'+ json[i].p_img +'" class="otros1"  name="color" value="'+ json[i].id_producto +'" onclick="cambiarFotoRadio(this)" type="radio" />\n\
+                    </div><br>\n\
+                    <button>Comprar</button>\n\
+                    </div>\n\
+                    </div>';
+                }
+                                
+            var panoramica = document.querySelector(".img-panoramica");
+            panoramica.innerHTML = "";
+            panoramica.style = "height:0px;";
+            window.cambiarFoto = null;
+            var pagina = document.querySelector("#tituloP");
+            pagina.textContent = titulos;
+            seccion.innerHTML = output;
+           }           
+  };
+   xhr.send();
+ }
+ 
+ function pedirProductoPagimaMini(e){
+  var titulos = e.target.attributes[0].nodeValue;
+ 
+  var xhr = ajaxHeader("GET","./seleccionarTipoPro?contenido="+titulos);
+  xhr.onreadystatechange = function (){
+            if (xhr.readyState === 4 && xhr.status === 200){
+               var respuesta = xhr.responseText; 
+               var json = JSON.parse(respuesta);
+               var seccion = document.querySelector(".section");
+               
+                var output = '';
+                       
+                 for (var i = 0; i < json.length; i++) {
+
+                    output += '<div class="producto" id="'+ json[i].id_producto +'" >\n\
+                    <div class="img">\n\
+                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
+                    </div>\n\
+                    <div class="DComprar">\n\
+                    <p>' + json[i].p_nombre + '</p>\n\
+                    <div id="color'+json[i].id_producto+'"> \n\
+                    <button id='+ json[i].id_producto +' onclick="otrosColores(this)" style= "background-color:white;border:0px;color:black;">Colores</button>\n\
+                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input id="'+ json[i].p_img +'" class="otros1"  name="color" value="'+ json[i].id_producto +'" onclick="cambiarFotoRadio(this)" type="radio" />\n\
+                    </div><br>\n\
+                    <button>Comprar</button>\n\
+                    </div>\n\
+                    </div>';
+                }
+                                
+            var panoramica = document.querySelector(".img-panoramica");
+            panoramica.innerHTML = "";
+            panoramica.style = "height:0px;";
+            window.cambiarFoto = null;
+            var haeder = document.querySelector("#haederTitulo");
+            haeder.textContent = "Mini Noe";
+            haeder.style = "color:pink;";
+            var pagina = document.querySelector("#tituloP");
+            pagina.textContent = titulos;
+            seccion.innerHTML = output;
+           }           
+  };
+   xhr.send();
+ }
+
 function pedirProducto(){
-   var pagina = document.querySelector(".subtitulo");
-    var titulo = pagina.childNodes;
-   var titulos = titulo[0].textContent;
-   
-    if (titulos === "Novedades"){
-        var xhr = ajaxHeader("GET","./cargarProductos?pagina =");
+ var xhr = ajaxHeader("GET","./cargarProductos?pagina =");
   xhr.onreadystatechange = function (){
             if (xhr.readyState === 4 && xhr.status === 200){
                var respuesta = xhr.responseText; 
@@ -60,43 +174,32 @@ function pedirProducto(){
       }           
   };
    xhr.send();
-        
-    }else {
-    
-  var xhr = ajaxHeader("GET","./seleccionarTipoPro?paginaT="+titulos);
-  xhr.onreadystatechange = function (){
-            if (xhr.readyState === 4 && xhr.status === 200){
-               var respuesta = xhr.responseText; 
-               var json = JSON.parse(respuesta);
-               var seccion = document.querySelector(".section");
-               
-                var output = '';
-                       
-                 for (var i = 0; i < json.length; i++) {
-
-                    output += '<div class="producto" id="'+ json[i].id_producto +'" >\n\
-                    <div class="img">\n\
-                    <img id="imagen" src="img/' + json[i].p_img + '" value="' + json[i].id_producto + '" onmouseover="cambioFoto(this)" onmouseout="cambioFotob(this)" onclick="detalleProducto(this)" alt=""/>\n\
-                    </div>\n\
-                    <div class="DComprar">\n\
-                    <p>' + json[i].p_nombre + '</p>\n\
-                    <div id="color'+json[i].id_producto+'"> \n\
-                    <button id='+ json[i].id_producto +' onclick="otrosColores(this)">Colores</button>\n\
-                    <input id="colores" style= "background-color:' + json[i].p_color + '" ></input><input id="'+ json[i].p_img +'" class="otros1"  name="color" value="'+ json[i].id_producto +'" onclick="cambiarFotoRadio(this)" type="radio" />\n\
-                    </div><br>\n\
-                    <button>Comprar</button>\n\
-                    </div>\n\
-                    </div>';
-                }
-                                
-                            
-                 seccion.innerHTML = output;
-           }           
-  };
-   xhr.send();
-    }
+     
 }
 
+function pedirProductoPagimaLH(e){
+    var htmlSesion = "";
+    var htmlHis = "";
+    var seccion = document.querySelector(".section");
+    
+    var titulos = e.target.attributes[1].nodeValue;
+    var panoramica = document.querySelector(".img-panoramica");
+    panoramica.innerHTML = "";
+    panoramica.style = "height:0px;";
+    window.cambiarFoto = null;
+            
+    var pagina = document.querySelector("#tituloP");
+    
+    
+    if (titulos == "Historia"){
+    seccion.innerHTML = htmlHis;
+    pagina.textContent = "Historia";
+    }else {
+      seccion.innerHTML = htmlSesion;
+      pagina.textContent = "Sesion de fotos";
+    }
+}
+;
 
 function otrosColores(e){
       
@@ -110,17 +213,14 @@ function otrosColores(e){
                var respuesta = xhr.responseText;
                var json = JSON.parse(respuesta);
                var id =idProducto;
-          var producto = document.getElementById(id);
-              var idDiv = "color"+id;
+             var idDiv = "color"+id;
           var div = document.getElementById(idDiv);
-          
-                  
+               
                 for (var i = 0; i < json.length; i++) {
             
                  var input = document.createElement("input");
                  input.setAttribute("id","colores");
                  input.setAttribute("style","background-color:" + json[i].o_color );
-            
                  var inputRadio = document.createElement("input");
                  inputRadio.setAttribute("id",json[i].o_img);
                  inputRadio.setAttribute("name","color");
@@ -308,6 +408,10 @@ var imagenes = new Array(
 function cambiarFoto(){
 var contenedor = document.querySelector(".panoramica");
 
+var pagina = document.querySelector("#tituloP").textContent;
+    
+    if (pagina == "Novedades"){
+
   var index = localStorage.getItem("index");
     
     if (index == undefined){
@@ -385,12 +489,19 @@ var contenedor = document.querySelector(".panoramica");
         localStorage.removeItem("index");
     }
 }
+}
 
 function cambiaImg(){
     
+    var pagina = document.querySelector("#tituloP").textContent;
+    
+    if (pagina == "Novedades"){
     cambiarFoto();
     
+    
+    
     setInterval(cambiarFoto,5000);
+   }
 }
 
 function ajaxHeader(metodo, url){

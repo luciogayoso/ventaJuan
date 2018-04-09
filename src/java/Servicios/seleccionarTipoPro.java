@@ -26,19 +26,25 @@ public class seleccionarTipoPro extends HttpServlet {
         List res ;
         
         if (pagina.equals("null")) {
-         res = pedir.recuperarOtroColores(idProducto);
-        
-        String respuesta = gson.toJson(res);
-    
-    out.print(respuesta);
             
+                res = pedir.recuperarOtroColores(idProducto);
+
+                String respuesta = gson.toJson(res);
+
+                out.print(respuesta);
             
-        }else {
-           res = pedir.recuperarProductoTipo(pagina);
-        
-        String respuesta = gson.toJson(res);
-    
-    out.print(respuesta); 
+        }else if (pagina.equals("Liquidacion")) {
+                res = pedir.recuperarProductoTipoLiquidacion(pagina);
+
+                String respuesta = gson.toJson(res);
+
+                out.print(respuesta);
+            }else {
+            res = pedir.recuperarProductoTipo(pagina);
+
+            String respuesta = gson.toJson(res);
+
+            out.print(respuesta);
         }
       
     }

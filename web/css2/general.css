@@ -1,0 +1,588 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+a{
+    color: black;    
+    text-decoration: none;
+}
+
+.btn{
+    display: block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    margin-bottom: 5px;
+}
+
+.btn-black{
+    color: #fff;
+    background-color: black;
+}
+
+select{
+    display: inline-block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+.blue{
+    background: blue;
+}
+
+.black{
+    background: black;
+}
+
+.red{
+    background: red;
+}
+
+.green{
+    background: green;
+}
+
+.orage{
+    background: orange;
+}
+.yellow{
+    background: yellow;
+}
+
+
+@media (max-width:767px) {
+    .contenedor{
+        display: grid;
+        grid-template:"nav header"
+            "section  section"
+            "footer footer";
+        min-height: 100vh;
+        min-width: 100vw;
+        grid-template-rows:50px 1fr  minmax(min-content, max-content);
+        grid-template-columns:minmax(15%, 20%) minmax(85%, 80%);
+    }
+
+    /*    HEADER*/
+    header{
+        grid-area:header;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    header .logo{
+        display: none;
+    }
+    header .logoGrande{
+        flex-basis: 70%
+    }
+    header .logoGrande img{
+        margin: auto;
+        display: block;
+        width: 140px;
+    }
+    header .sesion{        
+        flex-basis: 30%
+    }
+     header .btn-sesion{        
+        display: none;
+    }
+    header .carrito a{
+        display: block;
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        line-height: 41px;
+        letter-spacing: -2px;
+        background: round;
+        margin: auto;
+        background-image: url(../img/carro-de-la-compra-vista-lateral-vacia_318-50806.jpg);
+
+    }
+
+
+    /*    NAV*/
+    nav{
+        grid-area:nav;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav .hamburger{
+        display: block;
+    }
+    nav .menuMobile{
+        border-top: 1px solid black;
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        list-style: none;
+        z-index: 999;
+        background: white;
+        width: 100%;
+    }
+    nav .menuMobile > li{
+        position: relative;
+    }
+    nav .menuMobile > .childSubMenu:after{
+        
+        line-height: 35px;
+        margin-right: 15px;
+        content: "v";
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 200ms;
+        color: #585858;
+    }
+    nav .menuMobile > li > a{
+        padding: 10px;
+        display: block;
+        border-bottom: 1px solid black;
+    } 
+    nav .menuMobile > li.active > a {
+        font-weight: bold;
+    }
+    nav .menuMobile > li.active::after{
+        transform: rotate(180deg);
+    }
+
+    nav .menuMobile  li .submenuMobile{
+        display:none;
+    }
+
+    nav .menuMobile li .submenuMobile ul > li a {
+        padding: 10px;
+        display: block;
+        color: grey;
+    }
+    
+    .info{
+        display: none;
+    }
+    
+/*    SECTION*/
+    section{
+        grid-area:section;
+    }
+
+    /*    FOOTER*/
+    footer{
+        grid-area:footer;
+        background:#F0F0F0;
+        color: #585857;
+        padding: 10px;
+    }
+    footer .social {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    footer .social > a{
+        display: inline-block;
+    }
+
+    footer .desarrollador{
+        font-size: 0.8em;
+
+    }
+
+    
+}
+
+
+@media(min-width:768px) and (max-width:1023px){
+
+    .contenedor{
+        display: grid;
+        grid-template:"nav header"
+            "section  section"
+            "footer footer";
+        min-height: 100vh;
+        min-width: 100vw;
+        grid-template-rows:50px 1fr  minmax(min-content, max-content);
+        grid-template-columns:minmax(15%, 20%) minmax(85%, 80%);
+    }
+
+    /*    HEADER*/
+    header{
+        grid-area:header;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    header .logoGrande{
+        flex-basis: 70%
+    }
+    header .logoGrande img{
+        margin: auto;
+        display: block;
+        width: 140px;
+        height: auto;
+    }
+    
+    header .sesion{        
+        flex-basis: 30%
+    }
+    header .btn-sesion{        
+        display: none;
+    }
+    header .carrito a{
+        display: block;
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        line-height: 41px;
+        letter-spacing: -2px;
+        background: round;
+        margin: auto;
+        background-image: url(../img/carro-de-la-compra-vista-lateral-vacia_318-50806.jpg);
+    }
+
+    /*    NAV*/
+    nav{
+        grid-area:nav;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav .hamburger{
+        display: block;
+    }
+    nav .menuMobile{
+        border-top: 1px solid black;
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        list-style: none;
+        z-index: 999;
+        background: white;
+        width: 100%;
+    }
+    nav .menuMobile > li{
+        position: relative;
+    }
+    nav .menuMobile > .childSubMenu:after{
+        
+        line-height: 35px;
+        margin-right: 15px;
+        content: "v";
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 200ms;
+        color: #585858;
+    }
+    nav .menuMobile > li > a{
+        padding: 10px;
+        display: block;
+        border-bottom: 1px solid black;
+    } 
+    nav .menuMobile > li.active > a {
+        font-weight: bold;
+    }
+    nav .menuMobile > li.active::after{
+        transform: rotate(180deg);
+    }
+
+    nav .menuMobile  li .submenuMobile{
+        display:none;
+    }
+
+    nav .menuMobile li .submenuMobile ul > li a {
+        padding: 10px;
+        display: block;
+        color: grey;
+    }
+    
+    .info{
+        display: none;
+    }
+
+    /*    SECTION*/
+    section{
+        grid-area:section;
+    }
+    
+    /*    FOOTER*/
+    footer{
+        grid-area:footer;
+        background:#F0F0F0;
+        color: #585857;
+        padding: 10px;
+    }
+    footer .social {
+        padding: 10px;
+        margin-bottom: 10px
+    }
+
+    footer .social > a{
+        display: inline-block;
+    }
+
+    footer .desarrollador{
+        font-size: 0.8em;
+
+    }
+
+}
+
+@media(min-width:1024px){
+
+    .contenedor {
+        display: grid;
+        grid-template: "header" "nav" "section" "footer";
+        min-height: 100vh;
+        min-width: 80vw;
+        grid-template-rows: 90px minmax(min-content,max-content) 1fr minmax(min-content, max-content);
+        grid-template-columns: 1fr;
+    }
+ 
+
+    /*    HEADER*/
+    header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    header .logoGrande{
+        width: 270px;
+        margin-right: 20%;
+    }
+    header .sesion{
+        display: flex;   
+    }
+    
+    header .sesion .ingreso, header .sesion .registro{
+        display: block;
+        font-family: "Pacifico", cursive;
+        font-style: italic;
+        color: black;
+        margin-bottom: 10px;
+        text-decoration: underline;
+    }
+    header .carrito {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    header .carrito a{
+        display: block;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 50px;
+        letter-spacing: -1px;
+        background: round;
+        background-image: url(../img/carro-de-la-compra-vista-lateral-vacia_318-50806.jpg);
+    }
+
+
+    /*NAV*/
+    nav{
+        grid-area:nav;
+    }
+    nav .menu{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-bottom: 1px solid #e6e6e6;
+        border-top:  1px solid #e6e6e6;
+        line-height: 45px;
+    }
+    nav .menu > li {
+        padding: 0px 25px;
+    }
+    nav .menu > li:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    nav .menu li:hover > .submenu{
+        opacity: 1;
+        z-index: 99999;
+    margin-top: 1px;
+    }
+    nav .menu li > .submenu{
+        opacity: 0;
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(255,255,255,.9);
+    position: absolute;
+    width: 100%;
+    left: 0;
+    margin-top: -8px;
+    padding-top: 20px;
+    height: 12rem;
+    transition: 200ms;
+    }
+
+    nav .menu li .submenu ul{
+        flex-basis: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    }
+    
+    nav .menu li .submenu .info{
+        align-self: flex-end;
+    flex-basis: 100%;
+    text-align: center;
+    color: white;
+    background: black;
+    line-height: 25px;
+    }
+    
+    nav .menu .submenu li{
+        padding: 15px;
+        font-family: Montserrat,"Century Gothic",Verdana,sans-serif;
+    }
+    nav .menu .submenu li:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+
+   
+    /*    FOOTER*/
+    footer{
+        grid-area:footer;
+        background:#F0F0F0;
+        color: #585857;
+        padding: 10px;
+    }
+    footer .social {
+        padding: 10px;
+        margin-bottom: 10px
+    }
+
+    footer .social > a{
+        display: inline-block;
+    }
+
+    footer .desarrollador{
+        font-size: 0.8em;
+
+    }
+
+
+}
+
+/* INICIO ESTILOS EXCLUSIVO PARA EL MENU "HAMBURGUESA" */
+.hamburger{
+    display:none;
+    background-color:transparent;
+    height:30px;
+    width:30px;
+    cursor:pointer;
+}
+.is-active{
+    background-color:none;
+}
+._layer{
+    background:black;
+    margin-bottom:4px;
+    border-radius:2px;
+    width:28px;
+    height:4px;
+    opacity:1;
+    transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+.is-active .-top{
+    -webkit-transform:translateY(200%) rotate(45deg) !important;
+    -ms-transform:translateY(200%) rotate(45deg) !important;
+    transform:translateY(200%) rotate(45deg) !important;
+}
+.is-active .-mid{
+    opacity:0;
+}
+.is-active .-bottom{
+    -webkit-transform:translateY(-200%) rotate(135deg) !important;
+    -ms-transform:translateY(-200%) rotate(135deg) !important;
+    transform:translateY(-200%) rotate(135deg) !important;
+}
+/*FIN*/
+
+/*INICIO MODAL*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    bottom:0;
+    right:0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100vw;
+    max-width: 700px;
+}
+/* Add Animation */
+.modal-content {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px black solid;
+    border-radius: 50%;
+    background: white;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+/*FIN*/
